@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle, Save } from "lucide-react";
 import Card from "../ui/Card";
-import { fg, mutedFg } from "./ProcessParts";
+import { StatusPill, fg, mutedFg } from "./ProcessParts";
 import { RunTable } from "../runs/RunPrimitives";
 import {
   CaseDrawerShell, CaseFooter, CaseLoading, FindingList, KeyValues, LatestRunCard, ResultBadge, RunHistory, Section, useStageCase,
 } from "./CaseParts";
 import { API_BASE } from "../../lib/api";
-import { money } from "../../lib/caseDetails";
+import { money, pct, resultColor } from "../../lib/caseDetails";
 
 const UW_ORDER = ["hold_tasks", "scra", "neighbourhood", "lsmr_terms", "lmt3_dates", "handoff"];
 const UW_LABELS = {
@@ -26,6 +26,48 @@ const toChoice = (v) => (v === true ? "true" : v === false ? "false" : "");
 const fromChoice = (v) => (v === "true" ? true : v === "false" ? false : null);
 
 /** MOD QC flags and the county recording date: the facts people record for closing. */
+/** The trial plan the Human Underwriter approved in Trial UW, and how its payments were received. */
+function ApprovedPlanCard({ plan }) {
+  if (!plan) return <Card><p className="text-sm" style={mutedFg}>No approved trial plan is recorded for this loan.</p></Card>;
+  const received = plan.installments.filter((i) => i.status === "paid" || i.status === "late").length;
+  return (
+    <Card className="!p-4 space-y-3">
+      <div className="flex flex-wrap justify-between items-start gap-3">
+        <div className="min-w-0">
+          <p className="font-sans text-sm font-semibold" style={fg}>{plan.plan_name}</p>
+          <p className="font-mono text-xs mt-0.5" style={mutedFg}>{plan.plan_id}</p>
+        </div>
+        <div className="text-right">
+          <StatusPill status="Approved" />
+          <p className="font-serif text-2xl tabular-nums mt-1" style={fg}>{money(plan.trial_payment)}<span className="text-sm" style={mutedFg}>/mo</span></p>
+        </div>
+      </div>
+      <KeyValues columns={4} rows={[
+        ["Principal & interest", money(plan.principal_interest)],
+        ["Escrow", money(plan.escrow_payment)],
+        ["Interest rate", `${Number(plan.interest_rate_pct).toFixed(3)}%`],
+        ["Amortization", `${plan.amortization_months} months`],
+        ["Trial payments", `${received} of ${plan.installments.length} received`],
+        ["First due", plan.first_due_date],
+        ["Housing ratio", pct(plan.housing_ratio)],
+        ["UPB at approval", money(plan.upb_balance)],
+      ]} />
+      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
+        {plan.installments.map((i) => (
+          <span key={i.installment_no} style={mutedFg}>
+            #{i.installment_no} {i.due_date}: <span className="font-semibold uppercase" style={{ color: resultColor(i.status) }}>{i.status}</span>
+            {i.received_date ? ` on ${i.received_date}` : ""}
+          </span>
+        ))}
+      </div>
+      <p className="text-xs" style={mutedFg}>
+        Approved {plan.decided_at ? new Date(plan.decided_at).toLocaleString() : "—"} by {plan.decided_by ?? "not recorded"} in Trial Underwriting
+        {plan.decision_note ? ` — “${plan.decision_note}”` : ""}
+      </p>
+    </Card>
+  );
+}
+
 function ClosingRecordForm({ loanId, qc, recordingState, signedOff }) {
   const qcClient = useQueryClient();
   const [values, setValues] = useState(() => Object.fromEntries(QC_FIELDS.map(([k]) => [k, toChoice(qc[k])])));
@@ -120,6 +162,10 @@ export default function ClosingCaseDrawer({ loan, onClose, onDocuments, onRun, r
             {fm.action && <p className="text-xs" style={mutedFg}>Action: <span style={fg}>{fm.action.label}</span> ({fm.action.severity}) — see {fm.action.show_checks.join(", ")}</p>}
           </Card>
         )}
+
+        <Section title="Approved trial plan">
+          <ApprovedPlanCard plan={d.approved_plan} />
+        </Section>
 
         <Section title="Final Underwriting checks" count={Object.keys(uw).length || null}>
           {Object.keys(uw).length ? (

@@ -17,7 +17,8 @@ const IDLE = "hsl(var(--muted-foreground))";
 export function statusColor(status) {
   if (!status || status === "Not reached" || status === "Not started") return IDLE;
   if (status === "Waiting") return "hsl(217, 80%, 45%)";
-  if (/^(Complete|Completed|Facially Complete|Ready|Within Plan|Signed Off|Recording)$/.test(status)) return GOOD;
+  if (/^(Complete|Completed|Facially Complete|Ready|Within Plan|Signed Off|Recording|Approved)$/.test(status)) return GOOD;
+  if (/^(Proposed|Not selected|Superseded)$/.test(status)) return IDLE;
   if (/Human Review|Progress|Hold|Delayed/.test(status)) return WARN;
   return BAD;
 }
