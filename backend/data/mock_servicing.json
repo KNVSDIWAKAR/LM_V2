@@ -1,0 +1,1689 @@
+{
+  "meta": {
+    "primary_key": "loan_id",
+    "total_loans": 30,
+    "purpose": "MOCK servicer data for the POC \u2014 not from MSP. Built by scripts/build_mock_servicing.py"
+  },
+  "loans": [
+    {
+      "loan_id": "1234567890",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 212400.0,
+          "new_payment_amount": 1300.68
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Alexandra M. Rivera",
+        "property_address": "123 Maplewood Drive, Bellevue, WA 98004",
+        "upb": 212400.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "3746317213",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 269300.0,
+          "new_payment_amount": 1649.12
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Marcus B. Whitfield",
+        "property_address": "5268 Maplewood Drive, Minneapolis, MN 55401",
+        "upb": 269300.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "9697354961",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 181300.0,
+          "new_payment_amount": 1110.23
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Priya G. Nguyn",
+        "property_address": "8937 Cedar Lane, Denver, CO 80202",
+        "upb": 181300.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "2181241943",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 375200.0,
+          "new_payment_amount": 2297.62
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Daniel D. Patel",
+        "property_address": "5904 Pine Ridge Road, Seattle, WA 98103",
+        "upb": 375200.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "1958682846",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 304700.0,
+          "new_payment_amount": 1865.9
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Chioma F. Okafor",
+        "property_address": "3953 Oak Street, Columbus, OH 43215",
+        "upb": 304700.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "4163119785",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 218100.0,
+          "new_payment_amount": 1335.59
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Kevin B. Brennan",
+        "property_address": "4633 Pine Ridge Road, Tampa, FL 33602",
+        "upb": 218100.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "9963334018",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 452800.0,
+          "new_payment_amount": 2772.82
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Sofia L. Castillo",
+        "property_address": "4673 Oak Street, Minneapolis, MN 55401",
+        "upb": 452800.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "2812140441",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 152800.0,
+          "new_payment_amount": 935.71
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Brian R. Hartman",
+        "property_address": "8475 Birch Avenue, Tampa, FL 33602",
+        "upb": 152800.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "1127978094",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 424500.0,
+          "new_payment_amount": 2599.52
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Elena S. Delgado",
+        "property_address": "1369 Lakeview Drive, Phoenix, AZ 85004",
+        "upb": 424500.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "1939042955",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 388300.0,
+          "new_payment_amount": 2377.84
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Thomas P. Sorensen",
+        "property_address": "7805 Oak Street, Minneapolis, MN 55401",
+        "upb": 388300.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "9703905715",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 399200.0,
+          "new_payment_amount": 2444.59
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Rachel J. Mitchell",
+        "property_address": "8021 Elm Street, Columbus, OH 43215",
+        "upb": 399200.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "7635473142",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 289100.0,
+          "new_payment_amount": 1770.37
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Andrew T. Kowalski",
+        "property_address": "4953 Birch Avenue, Seattle, WA 98103",
+        "upb": 289100.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "6241752544",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 227000.0,
+          "new_payment_amount": 1390.09
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Maria K. Ramirez",
+        "property_address": "4742 Willow Court, Portland, OR 97205",
+        "upb": 227000.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "7825844140",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 401400.0,
+          "new_payment_amount": 2458.06
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Jason N. Thompson",
+        "property_address": "5253 Oak Street, Atlanta, GA 30303",
+        "upb": 401400.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "4460967357",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 355400.0,
+          "new_payment_amount": 2176.37
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Hannah K. Abbott",
+        "property_address": "9601 Highland Avenue, Minneapolis, MN 55401",
+        "upb": 355400.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "8293453178",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 340600.0,
+          "new_payment_amount": 2085.74
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Carlos D. Fernandez",
+        "property_address": "574 Willow Court, Tacoma, WA 98402",
+        "upb": 340600.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "6756332150",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 422800.0,
+          "new_payment_amount": 2589.11
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Ingrid G. Lindqvist",
+        "property_address": "1691 Cedar Lane, Tampa, FL 33602",
+        "upb": 422800.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "1667779376",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 354000.0,
+          "new_payment_amount": 2167.8
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Rafael S. Morales",
+        "property_address": "8907 Birch Avenue, Seattle, WA 98103",
+        "upb": 354000.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "2445662585",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 256200.0,
+          "new_payment_amount": 1568.9
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Olivia M. Bennett",
+        "property_address": "358 Sunset Boulevard, Columbus, OH 43215",
+        "upb": 256200.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "5693307665",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 325400.0,
+          "new_payment_amount": 1992.66
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "David E. Choi",
+        "property_address": "1498 Oak Street, Seattle, WA 98103",
+        "upb": 325400.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "5710360983",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 253000.0,
+          "new_payment_amount": 1549.3
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Jessica L. Gallagher",
+        "property_address": "5414 Willow Court, Denver, CO 80202",
+        "upb": 253000.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "8934927891",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 472000.0,
+          "new_payment_amount": 2890.4
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Michael R. Sandoval",
+        "property_address": "1543 Sunset Boulevard, Minneapolis, MN 55401",
+        "upb": 472000.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "7887950851",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 369500.0,
+          "new_payment_amount": 2262.72
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Natalie B. Prescott",
+        "property_address": "3184 Highland Avenue, Raleigh, NC 27601",
+        "upb": 369500.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "4466589567",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 234800.0,
+          "new_payment_amount": 1437.85
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Omar S. Haddad",
+        "property_address": "2638 Cedar Lane, Portland, OR 97205",
+        "upb": 234800.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "8429141456",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 387700.0,
+          "new_payment_amount": 2374.17
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Samantha R. Jennings",
+        "property_address": "6897 Maplewood Drive, Raleigh, NC 27601",
+        "upb": 387700.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "3303082117",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 317500.0,
+          "new_payment_amount": 1944.28
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Victor N. Moreno",
+        "property_address": "5950 Maplewood Drive, Phoenix, AZ 85004",
+        "upb": 317500.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "2625792787",
+      "scenario": "Trial complete; SCRA rate at threshold \u2192 Team Lead",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 5.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 5.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 170100.0,
+          "new_payment_amount": 1041.65
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Laura F. Fitzgerald",
+        "property_address": "1411 Oak Street, Denver, CO 80202",
+        "upb": 170100.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "7665963761",
+      "scenario": "Trial complete; closing inputs clean",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 212800.0,
+          "new_payment_amount": 1303.13
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Kenji R. Takahashi",
+        "property_address": "5792 Sunset Boulevard, Seattle, WA 98103",
+        "upb": 212800.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "8995970241",
+      "scenario": "Second trial payment late \u2192 monitoring review",
+      "trial_payments": [
+        "on_time",
+        "late",
+        "on_time"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 250500.0,
+          "new_payment_amount": 1533.99
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Diana J. Alvarez",
+        "property_address": "8840 Willow Court, Tampa, FL 33602",
+        "upb": 250500.0,
+        "prior_partial_claim_amounts": []
+      }
+    },
+    {
+      "loan_id": "3479708607",
+      "scenario": "Third trial payment missed \u2192 Defaulted",
+      "trial_payments": [
+        "on_time",
+        "on_time",
+        "missed"
+      ],
+      "servicing_data": {
+        "DLQ1": {
+          "interest_rate": 4.75
+        },
+        "TASK1": {
+          "tasks": [
+            {
+              "task_id": "ESCMOD",
+              "status": "Completed",
+              "description": "Escrow modification",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-18"
+            },
+            {
+              "task_id": "PLNMTR",
+              "status": "Completed",
+              "description": "Plan monitoring",
+              "opened_date": "2026-09-01",
+              "completed_date": "2026-09-25"
+            }
+          ]
+        },
+        "MES1": {
+          "tasks": []
+        },
+        "LSMR": {
+          "current_interest_rate": 4.75,
+          "new_interest_rate": 6.875,
+          "new_term_months": 480,
+          "new_principal_balance": 144300.0,
+          "new_payment_amount": 883.65
+        },
+        "LMT3": {
+          "x65_date": "2026-10-19",
+          "e74_date": "2026-10-20",
+          "j03_date": "2026-10-21",
+          "x58_date": "2026-10-22",
+          "e68_date": "2026-10-23"
+        }
+      },
+      "neighbourhood_document": {
+        "document_date": "09/15/2026",
+        "borrower_name": "Ryan F. Whitaker",
+        "property_address": "8271 Lakeview Drive, Charlotte, NC 28202",
+        "upb": 144300.0,
+        "prior_partial_claim_amounts": []
+      }
+    }
+  ]
+}

@@ -45,7 +45,7 @@ python -m scripts.import_data --msp msp.json --lm-status lm_status.json --extrac
 uvicorn app.main:app --reload --port 8000
 ```
 
-To wipe the database and rebuild it from the files in one step, put `msp.json`, `lm_status.json` and `extracted_data.json` in `backend/data/` (git-ignored) and run `python -m scripts.reset_db`. It lists the tables, asks you to type `yes`, drops every table (runs included), recreates the five tables and loads the files. Add `--yes` to skip the prompt, or `--data-dir <folder>` to read the files from somewhere else.
+To wipe the database and rebuild it from the files in one step, put `msp.json`, `lm_status.json` and `extracted_data.json` in `backend/data/` (git-ignored) and run `python -m scripts.reset_db`. It lists the tables, asks you to type `yes`, drops every table (runs included), recreates them and loads the files — plus `mock_servicing.json` (POC mock servicer data, see `backend/harness/trial_uw/README.md`) when it is in the folder. Add `--yes` to skip the prompt, or `--data-dir <folder>` to read the files from somewhere else.
 
 The import validates every record against the schemas (unknown fields stop it) and upserts by key, so it is safe to re-run. Nothing is seeded automatically.
 

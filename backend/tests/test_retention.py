@@ -75,7 +75,7 @@ def test_approved_exit(case, code):
     case["msp"]["lmt1"]["loan_type_status"] = code
     final = evaluate(case)
     assert final["result"]["node"] == "approved_exit"
-    assert final["result"]["status"] == "Denied" and not final["result"]["advance"]
+    assert final["result"]["status"] == "Facially Incomplete" and not final["result"]["advance"]
     assert not final["context"]["report"]["stip_list"]
     assert [a["question_id"] for a in final["context"]["report"]["answers"]] == ["Q1", "Q2"]
 
@@ -528,7 +528,7 @@ def test_stip_text_and_authenticity_keywords_are_configurable(case):
     assert not answers(final, "CALC_Q1")
 
 
-def test_denied_manual_review_cannot_become_incomplete(loaded, case):
+def test_denied_manual_review_is_incomplete_without_dm712(loaded, case):
     case["msp"]["lmt1"]["loan_type_status"] = "MOD"
     install_case(case)
     loaded.post("/api/processes/2/run")
@@ -537,7 +537,7 @@ def test_denied_manual_review_cannot_become_incomplete(loaded, case):
     decision_id = routed.json()["decision_id"]
     assert loaded.post(f"/api/decisions/{decision_id}/decide", json={"decision": "approved"}).status_code == 200
     detail = loaded.get(f"/api/retention/cases/{LOAN}").json()
-    assert detail["status"] == "Denied" and not detail["report"]["dm712_required"]
+    assert detail["status"] == "Facially Incomplete" and not detail["report"]["dm712_required"]
 
 
 def test_active_workflow_excludes_retention_candidate(loaded, case):

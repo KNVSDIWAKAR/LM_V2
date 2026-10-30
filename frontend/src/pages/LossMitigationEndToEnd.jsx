@@ -22,6 +22,9 @@ function StageCard({ stage }) {
   const nav = PROCESSES[stage.stage_no - 1];
   const total = Object.values(stage.counts).reduce((a, b) => a + b, 0);
   const worked = Object.entries(stage.counts).filter(([s, n]) => s !== "Not reached" && n > 0);
+  // Count against the loans that reached this stage (handed on from the previous one), not the whole book.
+  const received = total - (stage.counts["Not reached"] ?? 0);
+  const waiting = stage.counts.Waiting ?? 0;
   return (
     <Link
       href={nav?.path ?? "/"}
@@ -67,9 +70,10 @@ function StageCard({ stage }) {
       </div>
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 mt-auto pt-2 border-t font-sans text-[11px]" style={{ borderColor: "hsl(var(--border))", ...mutedFg }}>
-        <span>
-          {total - (stage.counts["Not reached"] ?? 0) - (stage.counts.Waiting ?? 0)} of {total} worked
+        <span title={`${received} of ${total} loans have reached this stage`}>
+          {received === 0 ? "None received yet" : `${received - waiting} of ${received} received worked`}
         </span>
+        {waiting > 0 && <span style={{ color: "hsl(217, 80%, 45%)" }}>{waiting} waiting</span>}
         {stage.running > 0 && <span style={{ color: "hsl(217, 91%, 50%)" }}>{stage.running} running</span>}
         {stage.paused > 0 && <span style={{ color: "hsl(32, 90%, 38%)" }}>{stage.paused} in review</span>}
       </div>

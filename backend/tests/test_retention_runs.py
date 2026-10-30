@@ -94,7 +94,7 @@ def test_rerun_failure_is_terminal_and_old_verdict_preserved(loaded, case, monke
         assert db.get(models.LmStages, LOAN).retention_eligibility_status == before["status"]
 
 
-@pytest.mark.parametrize("stage_status", ["Facially Complete", "Denied", "Facially Incomplete", "In Human Review"])
+@pytest.mark.parametrize("stage_status", ["Facially Complete", "Facially Incomplete"])
 def test_rerun_accepts_existing_status_without_active_work(loaded, case, stage_status):
     install_case(case)
     with SessionLocal() as db:

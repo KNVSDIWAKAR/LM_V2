@@ -1,10 +1,11 @@
-"""Drop every table, recreate the five tables from app/models, and load the data files.
+"""Drop every table, recreate every table from app/models, and load the data files.
 
     python -m scripts.reset_db                      # asks before dropping; reads backend/data/
     python -m scripts.reset_db --yes                # no prompt
     python -m scripts.reset_db --data-dir C:/path   # folder holding the three files
 
-The folder must contain msp.json, lm_status.json and extracted_data.json.
+The folder must contain msp.json, lm_status.json and extracted_data.json. If it also has
+mock_servicing.json, the POC mock servicer data is loaded too (see app/engine/mock_servicer.py).
 This deletes everything in the database named in backend/.env, including workflow and agent runs.
 """
 
@@ -17,10 +18,11 @@ from sqlalchemy import MetaData, inspect
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.core.database import SessionLocal, create_tables, engine  # noqa: E402
-from scripts.import_data import import_extracted, import_lm_stages, import_msp  # noqa: E402
+from scripts.import_data import import_extracted, import_lm_stages, import_mock_servicing, import_msp  # noqa: E402
 
 DEFAULT_DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 FILES = {"msp": "msp.json", "lm_status": "lm_status.json", "extracted": "extracted_data.json"}
+MOCK_FILE = "mock_servicing.json"  # optional
 
 
 def main() -> None:
@@ -51,6 +53,9 @@ def main() -> None:
         print(f"msp:             {import_msp(db, paths['msp'])} loans")
         print(f"lm_stages:       {import_lm_stages(db, paths['lm_status'])} loans")
         print(f"extracted_data:  {import_extracted(db, paths['extracted'])} loans")
+        mock = args.data_dir / MOCK_FILE
+        if mock.is_file():
+            print(f"mock_servicing:  {import_mock_servicing(db, mock)} loans (MOCK servicer data)")
         db.commit()
     print("Done.")
 

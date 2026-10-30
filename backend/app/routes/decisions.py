@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from .. import models
 from ..core.database import get_db
 from ..engine import runner
-from ..engine.trial_support import PlanSelectionError, plan_out, plans_for_run
+from ..engine.trial_support import PlanSelectionError, findings_with_plan_status, plan_out, plans_for_run
 from ..schemas.decisions import DecideRequest, DecideResult, DecisionOut
 
 router = APIRouter(prefix="/api/decisions", tags=["decisions"])
@@ -18,6 +18,7 @@ def decision_out(db: Session, d: models.Decision) -> DecisionOut:
     extra = {}
     if d.stage_no == 3:
         extra["trial_plans"] = [plan_out(p) for p in plans_for_run(db, d.agent_run_id)]
+        extra["findings"] = findings_with_plan_status(d.findings or [], extra["trial_plans"])
     if d.stage_no == 5:
         qc = db.get(models.ClosingQc, d.loan_id)
         extra["qc"] = {flag: getattr(qc, flag) if qc else None for flag in models.QC_FLAGS}

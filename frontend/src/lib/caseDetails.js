@@ -11,6 +11,8 @@ export const RESULT_COLOR = {
   warn: "hsl(32, 90%, 38%)",
   late: "hsl(32, 90%, 38%)",
   pending: "hsl(217, 80%, 45%)",
+  approved: "hsl(142, 60%, 32%)",
+  declined: "hsl(0, 72%, 48%)",
 };
 
 export const RESULT_LABEL = {
@@ -27,6 +29,10 @@ export const RESULT_LABEL = {
   late: "Late",
   partial: "Partial",
   missed: "Missed",
+  approved: "Approved",
+  not_selected: "Not selected",
+  declined: "Declined",
+  superseded: "Superseded",
 };
 
 export function resultColor(result) {
@@ -37,7 +43,7 @@ export function resultColor(result) {
 export function countFindings(findings) {
   const counts = { pass: 0, fail: 0, review: 0, other: 0 };
   for (const f of Array.isArray(findings) ? findings : []) {
-    const key = f.result === "flagged" ? "fail" : f.result === "pending" ? "review" : f.result;
+    const key = { flagged: "fail", declined: "fail", pending: "review", approved: "pass" }[f.result] ?? f.result;
     counts[["pass", "fail", "review"].includes(key) ? key : "other"] += 1;
   }
   return counts;

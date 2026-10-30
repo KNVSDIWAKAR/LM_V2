@@ -4,6 +4,7 @@ import { CircleAlert, FileCode2, Inbox, LoaderCircle } from "lucide-react";
 import { Link } from "wouter";
 import LoanDrawer from "../components/knowledge/LoanDrawer";
 import ClosingCaseDrawer from "../components/process/ClosingCaseDrawer";
+import RetentionCaseDrawer from "../components/process/RetentionCaseDrawer";
 import TrialMonitoringCaseDrawer from "../components/process/TrialMonitoringCaseDrawer";
 import TrialUWCaseDrawer from "../components/process/TrialUWCaseDrawer";
 import Card from "../components/ui/Card";
@@ -14,7 +15,9 @@ import { PROCESSES } from "../lib/navigation";
 import { timeAgo } from "../lib/utils";
 
 // Stages whose loans open a case drawer (checks, plans, payments, closing record) instead of the documents drawer.
-const CASE_DRAWERS = { 3: TrialUWCaseDrawer, 4: TrialMonitoringCaseDrawer, 5: ClosingCaseDrawer };
+const CASE_DRAWERS = { 2: RetentionCaseDrawer, 3: TrialUWCaseDrawer, 4: TrialMonitoringCaseDrawer, 5: ClosingCaseDrawer };
+// Retention's Run re-evaluates every Intake-complete case that has no review or later-stage work.
+const RUN_BODY = { 2: { rerun: true } };
 
 function Tile({ label, value, color, active, onClick }) {
   return (
@@ -71,7 +74,7 @@ export default function ProcessPage({ stageNo }) {
     setBusy(true);
     setNote(null);
     try {
-      const r = await apiPost(`/api/processes/${stageNo}/run`, {});
+      const r = await apiPost(`/api/processes/${stageNo}/run`, RUN_BODY[stageNo] ?? {});
       setNote(r.queued ? `Running ${r.queued} case${r.queued === 1 ? "" : "s"}…` : "No cases are waiting at this stage.");
       refresh();
     } catch (err) {
@@ -235,7 +238,7 @@ export default function ProcessPage({ stageNo }) {
       {CaseDrawer && openLoan ? <CaseDrawer key={openLoan.loan_id}
         loan={data.loans.find((l) => l.loan_id === openLoan.loan_id) ?? openLoan}
         onClose={() => setOpenLoan(null)} onDocuments={(loan) => { setOpenLoan(null); setDocumentLoan(loan); }}
-        onRun={() => runLoan(openLoan)} running={runningLoan === openLoan.loan_id} /> : null}
+        onRun={() => runLoan(openLoan)} running={runningLoan === openLoan.loan_id} onRefresh={refresh} /> : null}
       <LoanDrawer loanId={CaseDrawer ? documentLoan?.loan_id : openLoan?.loan_id}
         borrowerName={CaseDrawer ? documentLoan?.borrower_name : openLoan?.borrower_name}
         onClose={() => { setOpenLoan(null); setDocumentLoan(null); }} />

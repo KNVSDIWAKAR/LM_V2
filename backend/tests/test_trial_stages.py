@@ -114,7 +114,7 @@ def test_trial_uw_proposes_plans_in_db_and_waits_for_underwriter(affordable):
     case = uw_case.get(f"/api/cases/3/{LOAN}").json()
     assert case["status"] == "In Human Review" and case["open_decision_id"] == decision.id
     assert case["data"]["plans"][0]["installments"][0]["due_date"] == "2026-12-01"
-    assert any(f["check"] == "Clarifier output" for f in case["latest_run"]["findings"])
+    assert any(f["check"] == "Retention report" for f in case["latest_run"]["findings"])
 
 
 def test_two_options_need_an_explicit_choice(affordable):
@@ -147,6 +147,13 @@ def test_approve_plan_ready_then_monitoring_starts(affordable):
         assert runner.stage_status(db, LOAN, 4) == "Within Plan"
         notes = db.get(models.Msp, LOAN).nots["notes"]
         assert notes[-1].startswith("LMT TRIAL 2026-10-30: plan " + chosen.id)
+    # The saved "review" plan findings now show the decision.
+    body = affordable.get(f"/api/decisions/{decision.id}").json()
+    plan_rows = {f["plan_id"]: f for f in body["findings"] if f.get("plan_id")}
+    assert plan_rows[chosen.id]["result"] == "approved" and "Approved by uw1" in plan_rows[chosen.id]["detail"]
+    assert {f["result"] for pid, f in plan_rows.items() if pid != chosen.id} == {"not_selected"}
+    case = affordable.get(f"/api/cases/3/{LOAN}").json()
+    assert not any(f["result"] == "review" and f.get("plan_id") for f in case["latest_run"]["findings"])
 
 
 def test_reject_declines_plans_and_escalates(affordable):
@@ -310,3 +317,91 @@ def test_review_from_older_playbook_is_409_then_retired_to_waiting(affordable):
     assert affordable.post("/api/processes/3/run", json={"loan_id": LOAN}).json()["queued"] == 1
     with SessionLocal() as db:
         assert _pending(db, 3).gate == "underwriter_review"
+
+
+# --------------------------------------------------------------------------- #
+# MOCK servicer (POC): data/mock_servicing.json drives Stage 4 straight to Closing
+# --------------------------------------------------------------------------- #
+
+
+def _mock(pattern):
+    with SessionLocal() as db:
+        db.merge(models.MockServicing(loan_id=LOAN, trial_payments=pattern, scenario="test"))
+        db.commit()
+
+
+def _approve_first_plan(client):
+    with SessionLocal() as db:
+        _run(db)
+        decision = _pending(db, 3)
+        plan = db.scalar(select(models.TrialPlan).where(models.TrialPlan.option_no == 1))
+    assert client.post(f"/api/decisions/{decision.id}/decide", json={"decision": "approved", "selected_plan_id": plan.id}).status_code == 200
+    return plan
+
+
+def test_mock_on_time_trial_completes_and_reaches_closing(affordable):
+    _mock(["on_time", "on_time", "on_time"])
+    plan = _approve_first_plan(affordable)
+    with SessionLocal() as db:
+        assert runner.stage_status(db, LOAN, 4) == "Completed"
+        assert runner.stage_status(db, LOAN, 5) == "In Human Review"  # Final UW ran; no TASK1 here → Team Lead
+        history = db.get(models.Msp, LOAN).dlq1["payment_history"]
+        assert [p["reference"] for p in history] == [f"MOCK-{plan.id}-{n}" for n in (1, 2, 3)]
+        run = db.scalar(select(models.AgentRun).where(models.AgentRun.stage_no == 4))
+        assert run.output["stage_report"]["mock_servicer"]["as_of"] == "2027-02-17"
+        assert any(f["check"] == "MOCK servicer" for f in run.output["findings"])
+
+
+@pytest.mark.parametrize("pattern, status", [
+    (["on_time", "missed", "on_time"], "Defaulted"),
+    (["partial"], "Defaulted"),
+    (["on_time", "late", "on_time"], "In Human Review"),
+    (["on_time", "not_yet", "not_yet"], "Within Plan"),
+])
+def test_mock_payment_patterns(affordable, pattern, status):
+    _mock(pattern)
+    _approve_first_plan(affordable)
+    with SessionLocal() as db:
+        assert runner.stage_status(db, LOAN, 4) == status
+
+
+def test_mock_rerun_replaces_its_own_payments(affordable):
+    _mock(["on_time", "not_yet", "not_yet"])
+    plan = _approve_first_plan(affordable)
+    with SessionLocal() as db:
+        _run(db)  # Within Plan re-runs: a second monitoring cycle
+        refs = [p["reference"] for p in db.get(models.Msp, LOAN).dlq1["payment_history"]]
+    assert refs == [f"MOCK-{plan.id}-1"]
+
+
+def test_mock_disabled_uses_real_dlq1_only(affordable, monkeypatch):
+    from app.core.config import settings
+
+    monkeypatch.setattr(settings, "mock_servicer_enabled", False)
+    _mock(["on_time", "on_time", "on_time"])
+    _approve_first_plan(affordable)
+    with SessionLocal() as db:
+        assert runner.stage_status(db, LOAN, 4) == "Within Plan"
+        assert db.get(models.Msp, LOAN).dlq1.get("payment_history") is None
+
+
+def test_mock_file_imports_screens_and_pattern(loaded, tmp_path):
+    import json
+
+    from app.core.config import BACKEND_DIR
+    from scripts.import_data import import_mock_servicing
+
+    data = json.loads((BACKEND_DIR / "data" / "mock_servicing.json").read_text(encoding="utf-8"))
+    data["loans"] = [l for l in data["loans"] if l["loan_id"] == LOAN]
+    data["meta"]["total_loans"] = 1
+    (tmp_path / "mock.json").write_text(json.dumps(data), encoding="utf-8")
+    with SessionLocal() as db:
+        db.get(models.Msp, LOAN).lmt3 = {"review_start_date": "2026-03-21"}
+        db.commit()
+        assert import_mock_servicing(db, tmp_path / "mock.json") == 1
+        db.commit()
+        msp = db.get(models.Msp, LOAN)
+        assert msp.task1["tasks"] and msp.lsmr["new_term_months"] == 480 and msp.lmt3["e68_date"] == "2026-10-23"
+        assert msp.lmt3["review_start_date"] == "2026-03-21"  # real LMT3 keys kept
+        assert db.get(models.ExtractedData, LOAN).neighbourhood_document["upb"] == msp.dlq1["upb_balance"]
+        assert db.get(models.MockServicing, LOAN).trial_payments == ["on_time"] * 3

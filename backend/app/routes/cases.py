@@ -13,7 +13,7 @@ from .. import models
 from ..core.database import get_db
 from ..engine import runner
 from ..engine.playbook import get_playbook
-from ..engine.trial_support import approved_plan, plan_out
+from ..engine.trial_support import approved_plan, findings_with_plan_status, plan_out
 from ..schemas.cases import ClosingRecordUpdate, LatestRun, RunSummary, StageCase
 
 router = APIRouter(prefix="/api/cases", tags=["cases"])
@@ -117,6 +117,8 @@ def stage_case(stage_no: int, loan_id: str, db: Session = Depends(get_db)) -> St
     pb = get_playbook(stage_no)
     rules = pb.rules if pb else {}
     data = {3: lambda: _stage3(db, msp), 4: lambda: _stage4(db, msp, rules), 5: lambda: _stage5(db, msp, rules)}[stage_no]()
+    if stage_no == 3 and latest is not None:
+        latest.findings = findings_with_plan_status(latest.findings, data["plans"])
     return StageCase(stage_no=stage_no, stage_name=stage.name, loan_id=loan_id, borrower_name=msp.borrower_name,
                      status=getattr(lm, f"{stage.key}_status") if lm else None, remark=(getattr(lm, f"{stage.key}_remark") if lm else "") or "",
                      open_decision_id=decision, latest_run=latest, runs=[_summary(r) for r in runs], data=data)

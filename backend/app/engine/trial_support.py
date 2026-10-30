@@ -95,6 +95,29 @@ def decline_plans(db: Session, run: models.AgentRun, decided_by: str, note: str 
             plan.decided_at, plan.decided_by, plan.decision_note = now, decided_by, note
 
 
+def findings_with_plan_status(findings: list[dict], plans: list[dict]) -> list[dict]:
+    """Trial-plan findings as the plans stand now: Approved / Not selected / Declined, not the
+    "review" they were saved with while the plans waited for the Human Underwriter."""
+    by_id = {p["plan_id"]: p for p in plans}
+    out = []
+    for f in findings:
+        plan = by_id.get(f.get("plan_id"))
+        if plan is None or plan["status"] == "proposed":
+            out.append(f)
+            continue
+        on = (plan.get("decided_at") or "")[:10]
+        by = plan.get("decided_by") or "not recorded"
+        terms = f"${plan['trial_payment']:,.2f}/mo × {plan['trial_duration_months']} from {plan['first_due_date']}"
+        result, detail = {
+            "approved": ("approved", f"Approved by {by} on {on} — {terms}"),
+            "not_selected": ("not_selected", f"Not selected — another option was approved on {on}"),
+            "declined": ("declined", f"Declined by {by} on {on}" + (f": {plan['decision_note']}" if plan.get("decision_note") else "")),
+            "superseded": ("superseded", "Superseded by a newer Trial UW evaluation"),
+        }[plan["status"]]
+        out.append({**f, "result": result, "detail": detail})
+    return out
+
+
 def _iso(value) -> str | None:
     return value.isoformat() if value is not None else None
 

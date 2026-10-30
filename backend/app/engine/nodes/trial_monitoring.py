@@ -11,6 +11,8 @@ from copy import deepcopy
 from datetime import date
 
 from ... import models
+from ...core.config import settings
+from .. import mock_servicer
 from ..registry import node
 from ..trial_support import approved_plan, as_float, plan_out
 
@@ -85,6 +87,15 @@ def load_case(state: dict, deps) -> dict:
     context["plan"] = plan_out(plan)
     findings = [_finding("Approved trial plan", "pass", f"{plan.plan_name}: ${plan.trial_payment:,.2f}/mo × {plan.trial_duration_months}, "
                          f"approved by {plan.decided_by or 'not recorded'}", plan_id=plan.id, source="trial_plans")]
+    mock = mock_servicer.post_trial_payments(deps.db, msp.loan_id, context["plan"]) if settings.mock_servicer_enabled else None
+    if mock is not None:
+        context["dlq1"] = deepcopy(msp.dlq1)
+        context["mock_servicer"] = mock
+        if mock["as_of"] and mock["as_of"] > context["evaluation_date"]:
+            context["evaluation_date"] = mock["as_of"]
+        findings.append(_finding("MOCK servicer", "neutral",
+                                 f"Scenario '{mock['scenario']}' ({', '.join(mock['pattern'])}): posted {len(mock['posted'])} mock payment(s) to DLQ1; "
+                                 f"evaluated as of the simulated date {context['evaluation_date']}", source="mock_servicing"))
     return {"outcome": "pass", "context": context, "findings": findings, "detail": f"Monitoring plan {plan.id}"}
 
 

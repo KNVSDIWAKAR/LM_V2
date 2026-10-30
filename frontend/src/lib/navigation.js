@@ -29,7 +29,7 @@ export const DOMAIN_JOURNEYS = [
     path: "/loss-mit-intake",
     process: "intake",
     description:
-      "Validate the MAA + hardship/income documents against investor matrices; compute completeness; draft borrower follow-ups",
+      "Validate the MAA + hardship/income documents against MSP (BK/FC, identity); route as Complete / Missing Doc / End Case / In Human Review",
   },
   {
     id: "loss-mit",
@@ -38,7 +38,7 @@ export const DOMAIN_JOURNEYS = [
     path: "/loss-mit",
     process: "eligibility",
     description:
-      "GSE (Fannie/Freddie) retention waterfall — delinquency, hardship, affordability & exclusions; recommend Forbearance / Payment Deferral / Flex Modification / Refer / Decline",
+      "GSE (Fannie/Freddie) retention questionnaire — workflow, investor rules, signatures, income documents; verdict Facially Complete / Facially Incomplete",
   },
   {
     id: "loss-mit-trial-uw",
@@ -47,7 +47,7 @@ export const DOMAIN_JOURNEYS = [
     path: "/loss-mit-trial-uw",
     process: "trial-underwriting",
     description:
-      "Underwrite the Flex Modification trial — verify income/package, recompute payment-reduction & escrow, generate the 3-month Trial Plan and route as Ready / In UW / Hold / Declined",
+      "Underwrite the modification trial — verify the package, calculate income, P&I and escrow, propose Trial Plans for the Human Underwriter; Ready / Hold / Declined",
   },
   {
     id: "loss-mit-trial",
@@ -56,7 +56,7 @@ export const DOMAIN_JOURNEYS = [
     path: "/loss-mit-trial",
     process: "trial-monitoring",
     description:
-      "Monitor the 3-month modification trial — payments made vs missed and the 15-day grace; flag On Track / At Risk / Completed / Broken",
+      "Match MSP DLQ1 payments to the approved trial plan with its 15-day grace; Within Plan / Delayed Payment / Completed / Defaulted",
   },
   {
     id: "loss-mit-closing",
@@ -65,7 +65,7 @@ export const DOMAIN_JOURNEYS = [
     path: "/loss-mit-closing",
     process: "closing",
     description:
-      "Finalize the permanent modification — QC checklist and the 14-day county-recording SLA; Cleared to Record / In QC / Recording / Denied / SLA Breach",
+      "Final Underwriting checks, MOD QC and sign-off, then the Final Mod checks and 14-day recording SLA; Recording / Signed Off / Sign Off & In Progress / Denied",
   },
 ];
 

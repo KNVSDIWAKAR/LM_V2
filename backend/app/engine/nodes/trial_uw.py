@@ -93,7 +93,7 @@ def load_case(state: dict, deps) -> dict:
     findings = [
         _finding("Retention forwarded", "pass", f"Retention Eligibility is {required}", source="lm_stages.retention_eligibility_status"),
         _finding(
-            "Clarifier output",
+            "Retention report",
             "pass" if retention else "neutral",
             f"Retention run {retention['agent_run_id']}: {retention['verdict']}, {retention['stip_count']} stip(s)"
             if retention

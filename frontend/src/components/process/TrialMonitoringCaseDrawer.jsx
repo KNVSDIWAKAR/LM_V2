@@ -25,6 +25,17 @@ export default function TrialMonitoringCaseDrawer({ loan, onClose, onDocuments, 
       {data && <>
         <LatestRunCard run={run} remark={data.remark} emptyText="This loan has not been monitored yet." />
 
+        {run?.stage_report?.mock_servicer && (
+          <Card className="!p-4" >
+            <p className="text-sm font-semibold" style={{ color: "hsl(32, 90%, 38%)" }}>MOCK servicer data</p>
+            <p className="text-xs mt-1" style={mutedFg}>
+              Scenario “{run.stage_report.mock_servicer.scenario}” ({run.stage_report.mock_servicer.pattern.join(", ")}) posted{" "}
+              {run.stage_report.mock_servicer.posted.length} simulated payment(s) to DLQ1. This cycle was evaluated as of{" "}
+              {run.stage_report.mock_servicer.as_of ?? "today"}. Set MOCK_SERVICER_ENABLED=false to monitor real DLQ1 data only.
+            </p>
+          </Card>
+        )}
+
         <Section title="Approved trial plan">
           {plan ? (
             <Card className="!p-4 space-y-3">

@@ -26,6 +26,9 @@ class Settings(BaseSettings):
     auto_flow_enabled: bool = True
     auto_flow_interval_seconds: int = 30
 
+    # POC: Trial Monitoring posts mock trial payments for loans in mock_servicing (app/engine/mock_servicer.py).
+    mock_servicer_enabled: bool = True
+
     # Serve frontend/dist from this server; rebuild it when frontend/ changes (app/core/frontend.py).
     frontend_auto_build: bool = True
     frontend_watch: bool = True

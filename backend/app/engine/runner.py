@@ -29,7 +29,7 @@ from sqlalchemy.orm import Session
 from .. import models
 from . import sensors
 from .playbook import Deps, Playbook, get_playbook
-from .trial_support import approve_plan, decline_plans
+from .trial_support import approve_plan, decline_plans, findings_with_plan_status, plan_out, plans_for_run
 
 ACTIVE = ("running", "paused")
 
@@ -39,7 +39,7 @@ RERUNNABLE: dict[int, tuple[str, ...]] = {4: ("Within Plan", "Delayed Payment"),
 
 # Context keys a stage exposes in agent_runs.output["stage_report"] for its case page.
 REPORT_KEYS = ("retention", "terms", "options", "plans", "plan", "installments", "payments_considered",
-               "lmt_note", "uw_results", "handoff", "final_mod")
+               "lmt_note", "mock_servicer", "uw_results", "handoff", "final_mod")
 
 # One lock per loan: the scheduler, the Run buttons and the Decision Inbox can all act on a
 # loan, but never at the same time.
@@ -176,8 +176,11 @@ def _execute(db: Session, run: models.AgentRun, pb: Playbook, state: dict[str, A
         **report_payload,
     }
     if (final.get("context") or {}).get("report") is not None:
-        run.output["report"] = {**final["context"]["report"], "verdict": result["status"],
-                                "dm712_required": result["status"] == "Facially Incomplete"}
+        report = final["context"]["report"]
+        # Exits and denials also end Facially Incomplete; only outstanding stips need a DM712 letter.
+        run.output["report"] = {**report, "verdict": result["status"],
+                                "dm712_required": result["status"] == "Facially Incomplete" and bool(report.get("stip_count"))
+                                and not final["context"].get("exit_reason")}
         if final["context"].get("exit_reason"):
             run.output["report"]["exit_reason"] = final["context"]["exit_reason"]
     _finish(run, "completed")
@@ -301,6 +304,10 @@ def resume(db: Session, decision: models.Decision, approved: bool, decided_by: s
 
     state = deepcopy(run.state)
     applied = _apply_decision(db, run, decision, approved, decided_by, note, selected_trial_plan, qc)
+    if run.stage_no == 3:
+        plans = [plan_out(p) for p in plans_for_run(db, run.id)]
+        state["findings"] = findings_with_plan_status(state.get("findings", []), plans)
+        decision.findings = findings_with_plan_status(decision.findings or [], plans)
 
     decision.status = "approved" if approved else "rejected"
     decision.decided_at = now_utc()

@@ -11,7 +11,7 @@ missing, the case is held or flagged for a person. Nothing gets a default.
 
 ## Stage 3 · Trial Underwriting
 
-1. Ingest: the loan must be **Facially Complete** in Retention. The Stage 2 run report (the clarifier output) is recorded as a finding.
+1. Ingest: the loan must be **Facially Complete** in Retention. The saved Stage 2 Retention report is recorded as a finding.
 2. Package: MAA, paystubs (at least `minimum_paystubs`), bank statement and credit report must be on file. If any is missing → **Hold Docs Pending**.
 3. Eligibility: an investor outside `investor.eligible`, or UPB ≤ 0 → **Declined** (escalated to Onshore). An approval status still outstanding on LMT1/USR2 → **Hold Approval Pending**.
 4. Terms: gross monthly income is the sum of the MAA `income_sources`, plus `other_income_amount` when the rules include it. Paystub wages are cross-checked within the tolerance. Current payment comes from `credit_report.monthly_mortgage_payment`, escrow from ANA1, UPB from DLQ1, and the rate from `posted_rate_pct[investor]`.
@@ -61,3 +61,20 @@ The legacy policy edge case is kept: QC complete with recording still pending in
 ```
 
 `payment_history: null` (or absent) means MSP sent no history. `[]` means MSP reports no payments. On startup, `create_tables()` adds the new nullable columns to an existing database.
+
+## MOCK servicer (POC)
+
+Real trial payments take months to arrive, so `backend/data/mock_servicing.json` gives every
+loan mock MSP data: a trial payment pattern plus TASK1, MES1, LSMR, the LMT3 closing dates,
+DLQ1.interest_rate and a neighbourhood document that matches the loan's own MSP identity and UPB.
+`python -m scripts.reset_db` loads it whenever the file is in the data folder. To load it on
+its own, run `python -m scripts.import_data --mock data/mock_servicing.json`. It is rebuilt
+by `python -m scripts.build_mock_servicing`; edit `SCENARIOS` there to change who pays late or misses.
+
+When Stage 4 runs for a loan with a `mock_servicing` row, the mock servicer posts that loan's
+payments to DLQ1. They are marked `Trial (MOCK)` with reference `MOCK-<plan>-<n>`. Monitoring
+then evaluates as of the end of the simulated trial, so an on-time loan becomes Completed and
+moves straight into Closing. The Trial Monitoring drawer labels these runs MOCK. To monitor
+real DLQ1 data only, set `MOCK_SERVICER_ENABLED=false` or leave the file out.
+
+Patterns: `on_time`, `late` (5 days after grace), `partial` (half), `missed`, `not_yet` (trial not that far yet).

@@ -189,7 +189,7 @@ nodes:
     title: Legacy review — retained for previously paused runs
     gate: human_review
     team: $review.team
-    status: In Human Review
+    status: Facially Incomplete # stays incomplete while a reviewer looks at it
     on_approve: complete
     on_reject: denied
   incomplete:
@@ -199,7 +199,7 @@ nodes:
     title: Review outstanding retention stips (approval does not waive documents)
     gate: human_review
     team: $review.team
-    status: In Human Review
+    status: Facially Incomplete # stays incomplete while a reviewer looks at it
     on_approve: manual_result
     on_reject: denied
   manual_result:
@@ -211,15 +211,15 @@ nodes:
     advance: true
   denied:
     end: true
-    status: Denied
+    status: Facially Incomplete
   liquidation_exit:
     title: Exit — Liquidation workflow (not a retention denial on merits)
     end: true
-    status: Denied
+    status: Facially Incomplete
   approved_exit:
     title: Exit — Post-Underwriting workflow
     end: true
-    status: Denied
+    status: Facially Incomplete
   form_exempt_exit:
     title: FNMA over nine months — no form checks required
     end: true

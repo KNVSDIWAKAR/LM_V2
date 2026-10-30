@@ -12,7 +12,8 @@ import { PROCESSES } from "../lib/navigation";
 import { timeAgo } from "../lib/utils";
 import { money, pct } from "../lib/caseDetails";
 
-const RESULT_COLOR = { fail: "hsl(0, 72%, 48%)", review: "hsl(32, 90%, 38%)", missing: "hsl(0, 72%, 48%)", invalid: "hsl(0, 72%, 48%)" };
+const RESULT_COLOR = { fail: "hsl(0, 72%, 48%)", review: "hsl(32, 90%, 38%)", missing: "hsl(0, 72%, 48%)", invalid: "hsl(0, 72%, 48%)",
+  approved: "hsl(142, 60%, 32%)", pass: "hsl(142, 60%, 32%)", declined: "hsl(0, 72%, 48%)", not_selected: "hsl(var(--muted-foreground))" };
 const REVIEWER = "reviewer@workbench.local";
 const QC_FIELDS = [
   ["borrower_property_verified", "Borrower & property match the Note"],
@@ -147,7 +148,7 @@ function DecisionPanel({ d, onOpenLoan, onDecided }) {
               <td className="px-4 py-2.5 text-xs" style={mutedFg}>{f.document ?? "—"}</td>
               <td className="px-4 py-2.5 text-xs" style={fg}>{f.doc_value != null ? String(f.doc_value) : f.document ? "—" : f.detail}</td>
               <td className="px-4 py-2.5 text-xs" style={fg}>{f.msp_value != null ? String(f.msp_value) : "—"}</td>
-              <td className="px-4 py-2.5 text-xs font-semibold uppercase" style={{ color: RESULT_COLOR[f.result] ?? "inherit" }}>{f.result}</td>
+              <td className="px-4 py-2.5 text-xs font-semibold uppercase" style={{ color: RESULT_COLOR[f.result] ?? "inherit" }}>{String(f.result).replace("_", " ")}</td>
             </tr>
           ))}
         </RunTable>
@@ -256,6 +257,11 @@ function DecisionPanel({ d, onOpenLoan, onDecided }) {
             <span className="font-semibold capitalize">{(result?.decision ?? d).status}</span> by {(result?.decision ?? d).decided_by}{" "}
             {timeAgo((result?.decision ?? d).decided_at)}
           </p>
+          {(result?.decision ?? d).trial_plans?.filter((p) => p.status === "approved").map((p) => (
+            <p key={p.plan_id} className="font-sans text-sm" style={{ color: RESULT_COLOR.approved }}>
+              Approved plan: <span className="font-semibold">{p.plan_name}</span> · {money(p.trial_payment)}/mo × {p.trial_duration_months} from {p.first_due_date}
+            </p>
+          ))}
           {(result?.decision ?? d).note && (
             <p className="font-sans text-sm" style={mutedFg}>
               “{(result?.decision ?? d).note}”

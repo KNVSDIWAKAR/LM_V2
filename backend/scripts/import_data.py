@@ -5,12 +5,13 @@ the import), then upserted by loan_id, so re-running with newer files is safe.
 Runs are never touched.
 
     python -m scripts.import_data --msp msp.json --lm-status lm_status.json --extracted extracted_data.json
+    python -m scripts.import_data --mock mock_servicing.json      # POC mock servicer data (after msp / extracted)
 """
 
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from sqlalchemy.orm import Session
@@ -21,6 +22,7 @@ from app import models  # noqa: E402
 from app.core.database import SessionLocal, create_tables  # noqa: E402
 from app.schemas.extracted_data import DocumentSet, ExtractionFlags  # noqa: E402
 from app.schemas.lm_stages import LoanStagesIn, StageConfigIn  # noqa: E402
+from app.schemas.mock import MockLoanIn  # noqa: E402
 from app.schemas.msp import MspLoanIn  # noqa: E402
 
 
@@ -99,13 +101,43 @@ def import_extracted(db: Session, path: Path) -> int:
     return len(loans)
 
 
+def import_mock_servicing(db: Session, path: Path) -> int:
+    """MOCK servicer data: trial payment patterns plus the MSP screens / document Final UW reads.
+
+    Screens are merged into the existing loan (LMT3 and DLQ1 only the keys given), so the real
+    MSP import stays the base. Loans must already exist in msp."""
+    loans = [MockLoanIn.model_validate(raw) for raw in _loans(path)]
+    now = datetime.now(timezone.utc)
+    for loan in loans:
+        msp = db.get(models.Msp, loan.loan_id)
+        if msp is None:
+            raise SystemExit(f"{path.name}: loan {loan.loan_id} is not in msp; import msp.json first")
+        screens = loan.servicing_data.model_dump(mode="json", exclude_none=True)
+        for code in ("TASK1", "MES1", "LSMR"):
+            if code in screens:
+                setattr(msp, code.lower(), screens[code])
+        for code in ("LMT3", "DLQ1"):
+            if code in screens:
+                current = getattr(msp, code.lower()) or {}
+                setattr(msp, code.lower(), {**current, **screens[code]})
+        if loan.neighbourhood_document is not None:
+            doc = db.get(models.ExtractedData, loan.loan_id)
+            if doc is None:
+                raise SystemExit(f"{path.name}: loan {loan.loan_id} has no extracted_data row; import extracted_data.json first")
+            doc.neighbourhood_document = loan.neighbourhood_document.model_dump(mode="json")
+        db.merge(models.MockServicing(loan_id=loan.loan_id, trial_payments=list(loan.trial_payments), scenario=loan.scenario, loaded_at=now))
+    db.flush()
+    return len(loans)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--msp", type=Path, help="msp.json")
     parser.add_argument("--lm-status", type=Path, help="lm_status.json")
     parser.add_argument("--extracted", type=Path, help="extracted_data.json")
+    parser.add_argument("--mock", type=Path, help="mock_servicing.json (POC mock servicer)")
     args = parser.parse_args()
-    if not (args.msp or args.lm_status or args.extracted):
+    if not (args.msp or args.lm_status or args.extracted or args.mock):
         parser.error("give at least one file")
 
     create_tables()
@@ -117,6 +149,8 @@ def main() -> None:
             print(f"lm_stages:       {import_lm_stages(db, args.lm_status)} loans")
         if args.extracted:
             print(f"extracted_data:  {import_extracted(db, args.extracted)} loans")
+        if args.mock:
+            print(f"mock_servicing:  {import_mock_servicing(db, args.mock)} loans (MOCK)")
         db.commit()
     print("Import committed.")
 

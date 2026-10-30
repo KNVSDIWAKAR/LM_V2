@@ -23,8 +23,10 @@ class Stage:
 
 
 STAGES: tuple[Stage, ...] = (
-    Stage(1, "Intake", "intake", ("Complete", "Invalid Date Doc", "Missing Doc", "Missing & Invalid", "End Case", "In Human Review"), ("Complete",)),
-    Stage(2, "Retention Eligibility", "retention_eligibility", ("Facially Complete", "Denied", "Facially Incomplete", "In Human Review"), ("Facially Complete",)),
+    Stage(1, "Intake", "intake", ("Complete", "Missing Doc", "End Case", "In Human Review"), ("Complete",)),
+    # Retention has two outcomes only: exits, denials and cases waiting for a reviewer are all Facially Incomplete
+    # (the remark says which).
+    Stage(2, "Retention Eligibility", "retention_eligibility", ("Facially Complete", "Facially Incomplete"), ("Facially Complete",)),
     Stage(3, "Trial UW", "trial_uw", ("Ready", "UW In Progress", "Hold Docs Pending", "Hold Approval Pending", "Declined", "In Human Review"), ("Ready",)),
     Stage(4, "Trial Monitoring", "trial_monitoring", ("Completed", "Within Plan", "Delayed Payment", "Defaulted", "In Human Review"), ("Completed",)),
     Stage(5, "Closing", "closing", ("Recording", "Signed Off", "Sign Off & In Progress", "Denied", "In Human Review"), ("Recording", "Signed Off")),

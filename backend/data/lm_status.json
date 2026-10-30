@@ -9,9 +9,7 @@
       "stage_name": "Intake",
       "allowed_statuses": [
         "Complete",
-        "Invalid Date Doc",
         "Missing Doc",
-        "Missing & Invalid",
         "End Case",
         "In Human Review"
       ]
@@ -21,9 +19,7 @@
       "stage_name": "Retention Eligibility",
       "allowed_statuses": [
         "Facially Complete",
-        "Denied",
-        "Facially Incomplete",
-        "In Human Review"
+        "Facially Incomplete"
       ]
     },
     {

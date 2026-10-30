@@ -7,7 +7,7 @@ start: load_case
 
 nodes:
   load_case:
-    title: "1 · Ingest Retention result and clarifier output"
+    title: "1 · Ingest the Retention result"
     run: trial_uw.load_case
     next: check_documents
 
