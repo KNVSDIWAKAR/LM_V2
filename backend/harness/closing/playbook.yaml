@@ -1,0 +1,148 @@
+process: final_underwriting_and_closing
+stage_no: 5
+name: Final Underwriting & Closing
+agent: Final Underwriting Agent
+rules: rules.yaml
+start: load_case
+
+# Changes from playbook_draft.yaml (both avoided a loop that re-raised the same review):
+#   underwriting_team_lead.on_approve   load_case → underwriting_mod_qc (Team Lead clears the hold)
+#   final_mod_human_review.on_approve   fm_recording_sla → end_sign_off_in_progress (breach
+#                                       acknowledged; still waiting for county recording)
+nodes:
+  load_case:
+    title: "Load Stage 4-completed loan and servicing data"
+    run: closing.load_case
+    next: uw_hold_tasks
+  uw_hold_tasks:
+    title: "Check required TASK1 / MES1 tasks"
+    run: closing.check_hold_tasks
+    routes: { pass: uw_scra, hold: uw_scra, review: uw_scra }
+  uw_scra:
+    title: "Check SCRA rate threshold"
+    run: closing.check_scra
+    routes: { pass: uw_neighbourhood, review: uw_neighbourhood }
+  uw_neighbourhood:
+    title: "Check Neighbourhood document"
+    run: closing.check_neighbourhood
+    routes: { pass: uw_lsmr_terms, hold: uw_lsmr_terms, review: uw_lsmr_terms }
+  uw_lsmr_terms:
+    title: "Check LSMR modification terms"
+    run: closing.check_lsmr_terms
+    routes: { pass: uw_lmt3_dates, review: uw_lmt3_dates }
+  uw_lmt3_dates:
+    title: "Check LMT3 closing-code dates"
+    run: closing.check_lmt3_dates
+    routes: { pass: uw_handoff, review: uw_handoff }
+  uw_handoff:
+    title: "Check Underwriting handoff readiness"
+    run: closing.check_underwriting_handoff
+    routes: { pass: route_underwriting, review: route_underwriting }
+  route_underwriting:
+    title: "Route aggregated Underwriting check results"
+    run: closing.route_underwriting
+    routes:
+      pass: underwriting_mod_qc
+      hold: underwriting_team_lead
+      review: underwriting_team_lead
+  underwriting_team_lead:
+    title: "Resolve Underwriting hold or review"
+    gate: human_review
+    team: $final_underwriting.teams.hold
+    status: In Human Review
+    on_approve: underwriting_mod_qc
+    on_reject: end_denied
+  underwriting_mod_qc:
+    title: "Underwriting MOD QC"
+    gate: human_review
+    team: $final_underwriting.teams.mod_qc
+    status: In Human Review
+    reason: "Complete MOD QC: borrower & property match the Note, principal matches MSP, new terms match the approved plan"
+    on_approve: underwriting_sign_off
+    on_reject: end_denied
+  underwriting_sign_off:
+    title: "Approve the Underwriting plan"
+    gate: human_review
+    team: $final_underwriting.teams.sign_off
+    status: In Human Review
+    reason: "MOD QC recorded. Approve the Underwriting plan to start the Final Mod checks and the 14-day recording SLA"
+    on_approve: fm_trial_outcome
+    on_reject: end_denied
+  fm_trial_outcome:
+    title: "Check trial outcome"
+    run: closing.check_trial_outcome
+    routes:
+      {
+        pass: fm_borrower_property,
+        flagged: fm_borrower_property,
+        pending: fm_borrower_property,
+      }
+  fm_borrower_property:
+    title: "Check borrower and property against the Note"
+    run: closing.check_borrower_property
+    routes:
+      {
+        pass: fm_principal_balance,
+        flagged: fm_principal_balance,
+        pending: fm_principal_balance,
+      }
+  fm_principal_balance:
+    title: "Check principal balance against MSP"
+    run: closing.check_principal_balance
+    routes:
+      {
+        pass: fm_new_terms,
+        flagged: fm_new_terms,
+        pending: fm_new_terms,
+        skipped: fm_new_terms,
+      }
+  fm_new_terms:
+    title: "Check new terms against the approved plan"
+    run: closing.check_new_terms
+    routes:
+      {
+        pass: fm_recording_sla,
+        flagged: fm_recording_sla,
+        pending: fm_recording_sla,
+        skipped: fm_recording_sla,
+      }
+  fm_recording_sla:
+    title: "Check recording and 14-day SLA"
+    run: closing.check_recording_sla
+    routes:
+      {
+        pass: route_final_mod,
+        pending: route_final_mod,
+        flagged: route_final_mod,
+        not_applicable: route_final_mod,
+      }
+  route_final_mod:
+    title: "Route aggregated Final Mod results"
+    run: closing.route_final_mod
+    routes:
+      denied: end_denied
+      human_review: final_mod_human_review
+      sign_off_in_progress: end_sign_off_in_progress
+      recording: end_recording
+      signed_off: end_signed_off
+  final_mod_human_review:
+    title: "Review a Final Mod recording-SLA breach"
+    gate: human_review
+    team: $final_underwriting.teams.hold
+    status: In Human Review
+    on_approve: end_sign_off_in_progress
+    on_reject: end_denied
+  end_recording:
+    end: true
+    status: Recording
+    advance: true
+  end_signed_off:
+    end: true
+    status: Signed Off
+    advance: true
+  end_sign_off_in_progress:
+    end: true
+    status: Sign Off & In Progress
+  end_denied:
+    end: true
+    status: Denied

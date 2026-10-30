@@ -1,0 +1,24 @@
+version: "2026.10.30"
+
+# Stage 4 · Trial Monitoring. The approved trial plan (trial_plans) is matched against the
+# payments MSP posted in DLQ1.payment_history. Every evaluation cycle updates the installment
+# rows and writes one LMT note to MSP NOTS.
+trial_monitoring:
+  reviewer_team: Trial Monitoring
+  failure_team: Onshore # missed / short payment → Denial path
+
+  entry:
+    required_trial_uw_status: Ready
+
+  # A payment covers an installment when the cumulative amount received by the installment's
+  # grace end date reaches the cumulative expected amount, less this tolerance.
+  amount_tolerance: 1.00
+  # Payments dated before the plan was proposed belong to the old payment and are ignored.
+  ignore_payments_before_plan: true
+
+  # All installments covered but at least one after its grace period:
+  #   review → In Human Review (approve = Completed, reject = Defaulted)
+  late_but_complete: review
+
+  lmt_note:
+    prefix: "LMT TRIAL"

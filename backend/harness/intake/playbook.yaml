@@ -1,0 +1,81 @@
+# Kairos 1 · Operations — the playbook for Process 1 (Intake & Doc Review).
+#
+# The engine (app/engine/playbook.py) turns this file into a LangGraph. You never write graph
+# edges by hand:
+#
+#   run:      the Python node that does the work (registered in app/engine/nodes/)
+#   routes:   the node returns an `outcome`; this map says which node comes next for it
+#   next:     shorthand for a node with a single way forward
+#   gate:     a person decides. The case pauses, lands in the Decision Inbox, and resumes at
+#             on_approve or on_reject.
+#   end:      the stage is over; `status` is written to lm_stages, and `advance: true` sends
+#             the loan on to the next stage.
+#
+# To change the flow, edit the routes. To add a step, add a node here and its function in code.
+
+process: intake
+stage_no: 1
+name: Intake & Doc Review
+agent: Intake & Doc Review Agent
+rules: rules.yaml
+start: load_case
+
+nodes:
+  load_case:
+    title: "1 · Access data from the DB"
+    run: intake.load_case
+    next: msp_check
+
+  msp_check:
+    title: "2 · Business check: query MSP (BK/FC)"
+    run: intake.msp_check
+    routes:
+      clear: document_checks
+      bk_active: end_case_bk
+      sale_within_window: oversight_review
+
+  oversight_review:
+    title: "People · LM Oversight (foreclosure sale within 60 days)"
+    gate: human_review
+    team: LM Oversight
+    status: In Human Review
+    on_approve: document_checks
+    on_reject: end_case
+
+  document_checks:
+    title: "3 · Application form received and matches MSP"
+    run: intake.document_checks
+    routes:
+      clear: handoff
+      missing: missing_doc
+      mismatch: mismatch_review
+
+  mismatch_review:
+    title: "People · review the mismatches"
+    gate: human_review
+    team: LM Oversight
+    status: In Human Review
+    on_approve: handoff
+    on_reject: end_case
+
+  handoff:
+    title: "4 · Send the pack to LM Setup and hand off"
+    run: intake.handoff
+    next: complete
+
+  # ── End nodes: the stage status written to lm_stages ──
+  complete:
+    end: true
+    status: Complete
+    advance: true
+  missing_doc:
+    end: true
+    status: Missing Doc
+  end_case_bk:
+    title: "Onshore · bankruptcy active, case ends"
+    end: true
+    status: End Case
+    team: Onshore
+  end_case:
+    end: true
+    status: End Case

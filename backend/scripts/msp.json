@@ -1,0 +1,2336 @@
+{
+  "meta": {
+    "primary_key": "loan_id",
+    "total_loans": 30
+  },
+  "loans": [
+    {
+      "loan_id": "1234567890",
+      "borrower_name": "Alexandra M. Rivera",
+      "coborrower_name": "Luis S. Rivera",
+      "borrower_ssn_last4": "6789",
+      "coborrower_ssn_last4": "4321",
+      "property_address": "123 Maplewood Drive, Bellevue, WA 98004",
+      "mailing_address": "123 Maplewood Drive, Bellevue, WA 98004",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-10",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 385.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-19",
+          "loan_type": "Asset",
+          "upb_balance": 212400.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "123 Maplewood Drive, Bellevue, WA 98004",
+          "property_address": "123 Maplewood Drive, Bellevue, WA 98004",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "State Farm",
+          "policy_number": "HO-78234-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2027-01-15"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-21",
+          "review_start_date": "2026-03-21",
+          "review_date_minus_10": "2026-03-11",
+          "review_date_minus_90": "2025-12-21"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Maplewood Tech Solutions. Other income: $200/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Maplewood Tech Solutions",
+            "Income For Co Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Maplewood Tech Solutions"
+          ],
+          "latest_note_date": "2026-03-20"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 150.0,
+        "association_name": "Maplewood HOA"
+      }
+    },
+    {
+      "loan_id": "3746317213",
+      "borrower_name": "Marcus B. Whitfield",
+      "coborrower_name": "Dana H. Whitfield",
+      "borrower_ssn_last4": "6482",
+      "coborrower_ssn_last4": "7517",
+      "property_address": "5268 Maplewood Drive, Minneapolis, MN 55401",
+      "mailing_address": "5268 Maplewood Drive, Minneapolis, MN 55401",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Referred",
+        "referral_date": "2026-08-22",
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-06",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 605.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-27",
+          "loan_type": "Asset",
+          "upb_balance": 269300.0,
+          "investor_type": "GSE",
+          "property_state": "MN",
+          "mailing_address": "5268 Maplewood Drive, Minneapolis, MN 55401",
+          "property_address": "5268 Maplewood Drive, Minneapolis, MN 55401",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "State Farm",
+          "policy_number": "HO-60432-MN",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-06"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-29",
+          "review_start_date": "2026-03-29",
+          "review_date_minus_10": "2026-03-19",
+          "review_date_minus_90": "2025-12-29"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Harborview Medical Group. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Harborview Medical Group",
+            "Income For Co Borrower Income source: Harborview Medical Group. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Harborview Medical Group"
+          ],
+          "latest_note_date": "2026-03-28"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "9697354961",
+      "borrower_name": "Priya G. Nguyn",
+      "coborrower_name": "Arjun E. Nguyen",
+      "borrower_ssn_last4": "5038",
+      "coborrower_ssn_last4": "3923",
+      "property_address": "8937 Cedar Lane, Denver, CO 80202",
+      "mailing_address": "8937 Cedar Lane, Denver, CO 80202",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-08",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 300.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-04",
+          "loan_type": "Asset",
+          "upb_balance": 181300.0,
+          "investor_type": "GSE",
+          "property_state": "CO",
+          "mailing_address": "8937 Cedar Lane, Denver, CO 80202",
+          "property_address": "8937 Cedar Lane, Denver, CO 80202",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Nationwide",
+          "policy_number": "HO-58944-CO",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-21"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-05",
+          "review_start_date": "2026-04-05",
+          "review_date_minus_10": "2026-03-26",
+          "review_date_minus_90": "2026-01-05"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Brightway Insurance Agency. Other income: $275/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Brightway Insurance Agency",
+            "Income For Co Borrower Income source: Brightway Insurance Agency. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Brightway Insurance Agency"
+          ],
+          "latest_note_date": "2026-04-04"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "2181241943",
+      "borrower_name": "Daniel D. Patel",
+      "coborrower_name": null,
+      "borrower_ssn_last4": "1790",
+      "coborrower_ssn_last4": null,
+      "property_address": "5904 Pine Ridge Road, Seattle, WA 98103",
+      "mailing_address": "5904 Pine Ridge Road, Seattle, WA 98103",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-14",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 335.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-24",
+          "loan_type": "Asset",
+          "upb_balance": 375200.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "5904 Pine Ridge Road, Seattle, WA 98103",
+          "property_address": "5904 Pine Ridge Road, Seattle, WA 98103",
+          "months_delinquent": 2,
+          "number_of_borrowers": 1
+        },
+        "HAZ1": {
+          "carrier": "Liberty Mutual",
+          "policy_number": "HO-17685-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2026-12-13"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-26",
+          "review_start_date": "2026-03-26",
+          "review_date_minus_10": "2026-03-16",
+          "review_date_minus_90": "2025-12-26"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Harborview Medical Group. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Harborview Medical Group"
+          ],
+          "latest_note_date": "2026-03-25"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 210.0,
+        "association_name": "Pine HOA"
+      }
+    },
+    {
+      "loan_id": "1958682846",
+      "borrower_name": "Chioma F. Okafor",
+      "coborrower_name": "Emeka C. Okafor",
+      "borrower_ssn_last4": "8565",
+      "coborrower_ssn_last4": "5183",
+      "property_address": "3953 Oak Street, Columbus, OH 43215",
+      "mailing_address": "3953 Oak Street, Columbus, OH 43215",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "Active",
+        "chapter": "7",
+        "case_number": "26-29772",
+        "filing_date": "2026-09-10",
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-15",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 400.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-01",
+          "loan_type": "Asset",
+          "upb_balance": 304700.0,
+          "investor_type": "GSE",
+          "property_state": "OH",
+          "mailing_address": "3953 Oak Street, Columbus, OH 43215",
+          "property_address": "3953 Oak Street, Columbus, OH 43215",
+          "months_delinquent": 3,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "State Farm",
+          "policy_number": "HO-42018-OH",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-03"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-02",
+          "review_start_date": "2026-04-02",
+          "review_date_minus_10": "2026-03-23",
+          "review_date_minus_90": "2026-01-02"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Harborview Medical Group. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Harborview Medical Group",
+            "Income For Co Borrower Income source: Harborview Medical Group. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Harborview Medical Group"
+          ],
+          "latest_note_date": "2026-04-01"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 250.0,
+        "association_name": "Oak HOA"
+      }
+    },
+    {
+      "loan_id": "4163119785",
+      "borrower_name": "Kevin B. Brennan",
+      "coborrower_name": "Tara C. Brennan",
+      "borrower_ssn_last4": "7007",
+      "coborrower_ssn_last4": "9189",
+      "property_address": "4633 Pine Ridge Road, Tampa, FL 33602",
+      "mailing_address": "4633 Pine Ridge Road, Tampa, FL 33602",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-14",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 595.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-30",
+          "loan_type": "Asset",
+          "upb_balance": 218100.0,
+          "investor_type": "GSE",
+          "property_state": "FL",
+          "mailing_address": "4633 Pine Ridge Road, Tampa, FL 33602",
+          "property_address": "4633 Pine Ridge Road, Tampa, FL 33602",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-33206-FL",
+          "policy_current": true,
+          "policy_expiry_date": "2027-06-14"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-01",
+          "review_start_date": "2026-04-01",
+          "review_date_minus_10": "2026-03-22",
+          "review_date_minus_90": "2026-01-01"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Maplewood Tech Solutions",
+            "Income For Co Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Maplewood Tech Solutions"
+          ],
+          "latest_note_date": "2026-03-31"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "9963334018",
+      "borrower_name": "Sofia L. Castillo",
+      "coborrower_name": "Mateo J. Castillo",
+      "borrower_ssn_last4": "2925",
+      "coborrower_ssn_last4": "9512",
+      "property_address": "4673 Oak Street, Minneapolis, MN 55401",
+      "mailing_address": "4673 Oak Street, Minneapolis, MN 55401",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Sale Scheduled",
+        "referral_date": "2026-07-07",
+        "sale_date": "2026-10-28"
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-28",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 525.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-12",
+          "loan_type": "Asset",
+          "upb_balance": 452800.0,
+          "investor_type": "GSE",
+          "property_state": "MN",
+          "mailing_address": "4673 Oak Street, Minneapolis, MN 55401",
+          "property_address": "4673 Oak Street, Minneapolis, MN 55401",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "State Farm",
+          "policy_number": "HO-97062-MN",
+          "policy_current": true,
+          "policy_expiry_date": "2027-06-24"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-13",
+          "review_start_date": "2026-04-13",
+          "review_date_minus_10": "2026-04-03",
+          "review_date_minus_90": "2026-01-13"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Northgate Retail Corp. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Northgate Retail Corp",
+            "Income For Co Borrower Income source: Northgate Retail Corp. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Northgate Retail Corp"
+          ],
+          "latest_note_date": "2026-04-12"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "2812140441",
+      "borrower_name": "Brian R. Hartman",
+      "coborrower_name": "Jennifer R. Hartman",
+      "borrower_ssn_last4": "4959",
+      "coborrower_ssn_last4": "5085",
+      "property_address": "8475 Birch Avenue, Tampa, FL 33602",
+      "mailing_address": "8475 Birch Avenue, Tampa, FL 33602",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-20",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 275.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-04",
+          "loan_type": "Asset",
+          "upb_balance": 152800.0,
+          "investor_type": "GSE",
+          "property_state": "FL",
+          "mailing_address": "8475 Birch Avenue, Tampa, FL 33602",
+          "property_address": "8475 Birch Avenue, Tampa, FL 33602",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Progressive",
+          "policy_number": "HO-77889-FL",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-27"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-05",
+          "review_start_date": "2026-04-05",
+          "review_date_minus_10": "2026-03-26",
+          "review_date_minus_90": "2026-01-05"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Ironbridge Construction. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Ironbridge Construction",
+            "Income For Co Borrower Income source: Ironbridge Construction. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Ironbridge Construction"
+          ],
+          "latest_note_date": "2026-04-04"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "1127978094",
+      "borrower_name": "Elena S. Delgado",
+      "coborrower_name": "Paul H. Delgado",
+      "borrower_ssn_last4": "3505",
+      "coborrower_ssn_last4": "1052",
+      "property_address": "1369 Lakeview Drive, Phoenix, AZ 85004",
+      "mailing_address": "1369 Lakeview Drive, Phoenix, AZ 85004",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-15",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 545.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-20",
+          "loan_type": "Asset",
+          "upb_balance": 424500.0,
+          "investor_type": "GSE",
+          "property_state": "AZ",
+          "mailing_address": "1369 Lakeview Drive, Phoenix, AZ 85004",
+          "property_address": "1369 Lakeview Drive, Phoenix, AZ 85004",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-73993-AZ",
+          "policy_current": true,
+          "policy_expiry_date": "2026-12-27"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-22",
+          "review_start_date": "2026-03-22",
+          "review_date_minus_10": "2026-03-12",
+          "review_date_minus_90": "2025-12-22"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Granite Peak Energy. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Granite Peak Energy",
+            "Income For Co Borrower Income source: Granite Peak Energy. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Granite Peak Energy"
+          ],
+          "latest_note_date": "2026-03-21"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 320.0,
+        "association_name": "Lakeview HOA"
+      }
+    },
+    {
+      "loan_id": "1939042955",
+      "borrower_name": "Thomas P. Sorensen",
+      "coborrower_name": "Karen J. Sorensen",
+      "borrower_ssn_last4": "3266",
+      "coborrower_ssn_last4": "0333",
+      "property_address": "7805 Oak Street, Minneapolis, MN 55401",
+      "mailing_address": "7805 Oak Street, Minneapolis, MN 55401",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Sale Scheduled",
+        "referral_date": "2026-08-12",
+        "sale_date": "2026-12-28"
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-09",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 320.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-25",
+          "loan_type": "Asset",
+          "upb_balance": 388300.0,
+          "investor_type": "GSE",
+          "property_state": "MN",
+          "mailing_address": "7805 Oak Street, Minneapolis, MN 55401",
+          "property_address": "7805 Oak Street, Minneapolis, MN 55401",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-19961-MN",
+          "policy_current": true,
+          "policy_expiry_date": "2027-04-01"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-27",
+          "review_start_date": "2026-03-27",
+          "review_date_minus_10": "2026-03-17",
+          "review_date_minus_90": "2025-12-27"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Maplewood Tech Solutions. Other income: $150/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Maplewood Tech Solutions",
+            "Income For Co Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Maplewood Tech Solutions"
+          ],
+          "latest_note_date": "2026-03-26"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "9703905715",
+      "borrower_name": "Rachel J. Mitchell",
+      "coborrower_name": null,
+      "borrower_ssn_last4": "7613",
+      "coborrower_ssn_last4": null,
+      "property_address": "8021 Elm Street, Columbus, OH 43215",
+      "mailing_address": "8021 Elm Street, Columbus, OH 43215",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-07",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 455.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-04",
+          "loan_type": "Asset",
+          "upb_balance": 399200.0,
+          "investor_type": "GSE",
+          "property_state": "OH",
+          "mailing_address": "8021 Elm Street, Columbus, OH 43215",
+          "property_address": "8021 Elm Street, Columbus, OH 43215",
+          "months_delinquent": 1,
+          "number_of_borrowers": 1
+        },
+        "HAZ1": {
+          "carrier": "Nationwide",
+          "policy_number": "HO-74332-OH",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-23"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-05",
+          "review_start_date": "2026-04-05",
+          "review_date_minus_10": "2026-03-26",
+          "review_date_minus_90": "2026-01-05"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Ironbridge Construction. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Ironbridge Construction"
+          ],
+          "latest_note_date": "2026-04-04"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 220.0,
+        "association_name": "Elm HOA"
+      }
+    },
+    {
+      "loan_id": "7635473142",
+      "borrower_name": "Andrew T. Kowalski",
+      "coborrower_name": "Nicole K. Kowalski",
+      "borrower_ssn_last4": "2068",
+      "coborrower_ssn_last4": "8042",
+      "property_address": "4953 Birch Avenue, Seattle, WA 98103",
+      "mailing_address": "4953 Birch Avenue, Seattle, WA 98103",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-22",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 550.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-03",
+          "loan_type": "Asset",
+          "upb_balance": 289100.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "4953 Birch Avenue, Seattle, WA 98103",
+          "property_address": "4953 Birch Avenue, Seattle, WA 98103",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "State Farm",
+          "policy_number": "HO-83147-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2027-05-15"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-04",
+          "review_start_date": "2026-04-04",
+          "review_date_minus_10": "2026-03-25",
+          "review_date_minus_90": "2026-01-04"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Bluepeak Manufacturing. Other income: $250/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Bluepeak Manufacturing",
+            "Income For Co Borrower Income source: Bluepeak Manufacturing. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Bluepeak Manufacturing"
+          ],
+          "latest_note_date": "2026-04-03"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 90.0,
+        "association_name": "Birch HOA"
+      }
+    },
+    {
+      "loan_id": "6241752544",
+      "borrower_name": "Maria K. Ramirez",
+      "coborrower_name": "Jorge B. Ramirez",
+      "borrower_ssn_last4": "2441",
+      "coborrower_ssn_last4": "4352",
+      "property_address": "4742 Willow Court, Portland, OR 97205",
+      "mailing_address": "4742 Willow Court, Portland, OR 97205",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-15",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 445.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-12",
+          "loan_type": "Asset",
+          "upb_balance": 227000.0,
+          "investor_type": "GSE",
+          "property_state": "OR",
+          "mailing_address": "4742 Willow Court, Portland, OR 97205",
+          "property_address": "4742 Willow Court, Portland, OR 97205",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "State Farm",
+          "policy_number": "HO-40005-OR",
+          "policy_current": true,
+          "policy_expiry_date": "2027-04-22"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-13",
+          "review_start_date": "2026-04-13",
+          "review_date_minus_10": "2026-04-03",
+          "review_date_minus_90": "2026-01-13"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Granite Peak Energy. Other income: $225/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Granite Peak Energy",
+            "Income For Co Borrower Income source: Granite Peak Energy. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Granite Peak Energy"
+          ],
+          "latest_note_date": "2026-04-12"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "7825844140",
+      "borrower_name": "Jason N. Thompson",
+      "coborrower_name": "Emily B. Thompson",
+      "borrower_ssn_last4": "6770",
+      "coborrower_ssn_last4": "0888",
+      "property_address": "5253 Oak Street, Atlanta, GA 30303",
+      "mailing_address": "5253 Oak Street, Atlanta, GA 30303",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "Active",
+        "chapter": "13",
+        "case_number": "26-19494",
+        "filing_date": "2026-08-10",
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-04",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 650.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-13",
+          "loan_type": "Asset",
+          "upb_balance": 401400.0,
+          "investor_type": "GSE",
+          "property_state": "GA",
+          "mailing_address": "5253 Oak Street, Atlanta, GA 30303",
+          "property_address": "5253 Oak Street, Atlanta, GA 30303",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Liberty Mutual",
+          "policy_number": "HO-22217-GA",
+          "policy_current": true,
+          "policy_expiry_date": "2026-12-28"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-14",
+          "review_start_date": "2026-04-14",
+          "review_date_minus_10": "2026-04-04",
+          "review_date_minus_90": "2026-01-14"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Redwood Financial Group. Other income: $150/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Redwood Financial Group",
+            "Income For Co Borrower Income source: Redwood Financial Group. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Redwood Financial Group"
+          ],
+          "latest_note_date": "2026-04-13"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 230.0,
+        "association_name": "Oak HOA"
+      }
+    },
+    {
+      "loan_id": "4460967357",
+      "borrower_name": "Hannah K. Abbott",
+      "coborrower_name": "Isaac K. Abbott",
+      "borrower_ssn_last4": "5272",
+      "coborrower_ssn_last4": "3090",
+      "property_address": "9601 Highland Avenue, Minneapolis, MN 55401",
+      "mailing_address": "9601 Highland Avenue, Minneapolis, MN 55401",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-15",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 275.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-12",
+          "loan_type": "Asset",
+          "upb_balance": 355400.0,
+          "investor_type": "GSE",
+          "property_state": "MN",
+          "mailing_address": "9601 Highland Avenue, Minneapolis, MN 55401",
+          "property_address": "9601 Highland Avenue, Minneapolis, MN 55401",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Nationwide",
+          "policy_number": "HO-28894-MN",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-13"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-13",
+          "review_start_date": "2026-04-13",
+          "review_date_minus_10": "2026-04-03",
+          "review_date_minus_90": "2026-01-13"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Evergreen Data Systems. Other income: $250/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Evergreen Data Systems",
+            "Income For Co Borrower Income source: Evergreen Data Systems. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Evergreen Data Systems"
+          ],
+          "latest_note_date": "2026-04-12"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "8293453178",
+      "borrower_name": "Carlos D. Fernandez",
+      "coborrower_name": "Rosa R. Fernandez",
+      "borrower_ssn_last4": "2950",
+      "coborrower_ssn_last4": "2785",
+      "property_address": "574 Willow Court, Tacoma, WA 98402",
+      "mailing_address": "574 Willow Court, Tacoma, WA 98402",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "Discharged",
+        "chapter": "7",
+        "case_number": "25-22337",
+        "filing_date": "2025-07-16",
+        "closed_date": "2025-12-29"
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-28",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 645.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-26",
+          "loan_type": "Asset",
+          "upb_balance": 340600.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "574 Willow Court, Tacoma, WA 98402",
+          "property_address": "574 Willow Court, Tacoma, WA 98402",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Nationwide",
+          "policy_number": "HO-42780-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-25"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-28",
+          "review_start_date": "2026-03-28",
+          "review_date_minus_10": "2026-03-18",
+          "review_date_minus_90": "2025-12-28"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Maplewood Tech Solutions. Other income: $225/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Maplewood Tech Solutions",
+            "Income For Co Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Maplewood Tech Solutions"
+          ],
+          "latest_note_date": "2026-03-27"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "6756332150",
+      "borrower_name": "Ingrid G. Lindqvist",
+      "coborrower_name": "Erik J. Lindqvist",
+      "borrower_ssn_last4": "5352",
+      "coborrower_ssn_last4": "6807",
+      "property_address": "1691 Cedar Lane, Tampa, FL 33602",
+      "mailing_address": "1691 Cedar Lane, Tampa, FL 33602",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Sale Scheduled",
+        "referral_date": "2026-07-09",
+        "sale_date": "2026-11-17"
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-17",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 480.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-05",
+          "loan_type": "Asset",
+          "upb_balance": 422800.0,
+          "investor_type": "GSE",
+          "property_state": "FL",
+          "mailing_address": "1691 Cedar Lane, Tampa, FL 33602",
+          "property_address": "1691 Cedar Lane, Tampa, FL 33602",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Progressive",
+          "policy_number": "HO-61717-FL",
+          "policy_current": true,
+          "policy_expiry_date": "2026-11-04"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-06",
+          "review_start_date": "2026-04-06",
+          "review_date_minus_10": "2026-03-27",
+          "review_date_minus_90": "2026-01-06"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Evergreen Data Systems. Other income: $275/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Evergreen Data Systems",
+            "Income For Co Borrower Income source: Evergreen Data Systems. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Evergreen Data Systems"
+          ],
+          "latest_note_date": "2026-04-05"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "1667779376",
+      "borrower_name": "Rafael S. Morales",
+      "coborrower_name": "Camila D. Morales",
+      "borrower_ssn_last4": "2531",
+      "coborrower_ssn_last4": "6797",
+      "property_address": "8907 Birch Avenue, Seattle, WA 98103",
+      "mailing_address": "8907 Birch Avenue, Seattle, WA 98103",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-08",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 425.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-11",
+          "loan_type": "Asset",
+          "upb_balance": 354000.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "8907 Birch Avenue, Seattle, WA 98103",
+          "property_address": "8907 Birch Avenue, Seattle, WA 98103",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-94109-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2027-04-13"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-12",
+          "review_start_date": "2026-04-12",
+          "review_date_minus_10": "2026-04-02",
+          "review_date_minus_90": "2026-01-12"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Summit Health Partners. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Summit Health Partners",
+            "Income For Co Borrower Income source: Summit Health Partners. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Summit Health Partners"
+          ],
+          "latest_note_date": "2026-04-11"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 340.0,
+        "association_name": "Birch HOA"
+      }
+    },
+    {
+      "loan_id": "2445662585",
+      "borrower_name": "Olivia M. Bennett",
+      "coborrower_name": "Peter H. Bennett",
+      "borrower_ssn_last4": "8408",
+      "coborrower_ssn_last4": "9726",
+      "property_address": "358 Sunset Boulevard, Columbus, OH 43215",
+      "mailing_address": "358 Sunset Boulevard, Columbus, OH 43215",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Referred",
+        "referral_date": "2026-09-24",
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-17",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 640.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-12",
+          "loan_type": "Asset",
+          "upb_balance": 256200.0,
+          "investor_type": "GSE",
+          "property_state": "OH",
+          "mailing_address": "358 Sunset Boulevard, Columbus, OH 43215",
+          "property_address": "358 Sunset Boulevard, Columbus, OH 43215",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-46046-OH",
+          "policy_current": true,
+          "policy_expiry_date": "2027-04-09"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-13",
+          "review_start_date": "2026-04-13",
+          "review_date_minus_10": "2026-04-03",
+          "review_date_minus_90": "2026-01-13"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Summit Health Partners. Other income: $175/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Summit Health Partners",
+            "Income For Co Borrower Income source: Summit Health Partners. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Summit Health Partners"
+          ],
+          "latest_note_date": "2026-04-12"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "5693307665",
+      "borrower_name": "David E. Choi",
+      "coborrower_name": "Grace S. Choi",
+      "borrower_ssn_last4": "9201",
+      "coborrower_ssn_last4": "1424",
+      "property_address": "1498 Oak Street, Seattle, WA 98103",
+      "mailing_address": "1498 Oak Street, Seattle, WA 98103",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-22",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 520.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-20",
+          "loan_type": "Asset",
+          "upb_balance": 325400.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "1498 Oak Street, Seattle, WA 98103",
+          "property_address": "1498 Oak Street, Seattle, WA 98103",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Progressive",
+          "policy_number": "HO-66244-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2027-06-05"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-22",
+          "review_start_date": "2026-03-22",
+          "review_date_minus_10": "2026-03-12",
+          "review_date_minus_90": "2025-12-22"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Cascade Logistics Inc. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Cascade Logistics Inc",
+            "Income For Co Borrower Income source: Cascade Logistics Inc. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Cascade Logistics Inc"
+          ],
+          "latest_note_date": "2026-03-21"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "5710360983",
+      "borrower_name": "Jessica L. Gallagher",
+      "coborrower_name": "Ethan F. Gallagher",
+      "borrower_ssn_last4": "6947",
+      "coborrower_ssn_last4": "7957",
+      "property_address": "5414 Willow Court, Denver, CO 80202",
+      "mailing_address": "5414 Willow Court, Denver, CO 80202",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-11",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 575.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-30",
+          "loan_type": "Asset",
+          "upb_balance": 253000.0,
+          "investor_type": "GSE",
+          "property_state": "CO",
+          "mailing_address": "5414 Willow Court, Denver, CO 80202",
+          "property_address": "5414 Willow Court, Denver, CO 80202",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Farmers",
+          "policy_number": "HO-47938-CO",
+          "policy_current": true,
+          "policy_expiry_date": "2027-01-23"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-01",
+          "review_start_date": "2026-04-01",
+          "review_date_minus_10": "2026-03-22",
+          "review_date_minus_90": "2026-01-01"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Brightway Insurance Agency. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Brightway Insurance Agency",
+            "Income For Co Borrower Income source: Brightway Insurance Agency. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Brightway Insurance Agency"
+          ],
+          "latest_note_date": "2026-03-31"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 240.0,
+        "association_name": "Willow HOA"
+      }
+    },
+    {
+      "loan_id": "8934927891",
+      "borrower_name": "Michael R. Sandoval",
+      "coborrower_name": null,
+      "borrower_ssn_last4": "3630",
+      "coborrower_ssn_last4": null,
+      "property_address": "1543 Sunset Boulevard, Minneapolis, MN 55401",
+      "mailing_address": "1543 Sunset Boulevard, Minneapolis, MN 55401",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-05",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 320.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-05",
+          "loan_type": "Asset",
+          "upb_balance": 472000.0,
+          "investor_type": "GSE",
+          "property_state": "MN",
+          "mailing_address": "1543 Sunset Boulevard, Minneapolis, MN 55401",
+          "property_address": "1543 Sunset Boulevard, Minneapolis, MN 55401",
+          "months_delinquent": 2,
+          "number_of_borrowers": 1
+        },
+        "HAZ1": {
+          "carrier": "Progressive",
+          "policy_number": "HO-85952-MN",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-23"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-06",
+          "review_start_date": "2026-04-06",
+          "review_date_minus_10": "2026-03-27",
+          "review_date_minus_90": "2026-01-06"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Harborview Medical Group. Other income: $300/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Harborview Medical Group"
+          ],
+          "latest_note_date": "2026-04-05"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 280.0,
+        "association_name": "Sunset HOA"
+      }
+    },
+    {
+      "loan_id": "7887950851",
+      "borrower_name": "Natalie B. Prescott",
+      "coborrower_name": "Raj R. Prescott",
+      "borrower_ssn_last4": "1381",
+      "coborrower_ssn_last4": "8266",
+      "property_address": "3184 Highland Avenue, Raleigh, NC 27601",
+      "mailing_address": "3184 Highland Avenue, Raleigh, NC 27601",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Sale Scheduled",
+        "referral_date": "2026-06-15",
+        "sale_date": "2026-12-05"
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-19",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 530.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-05",
+          "loan_type": "Asset",
+          "upb_balance": 369500.0,
+          "investor_type": "GSE",
+          "property_state": "NC",
+          "mailing_address": "3184 Highland Avenue, Raleigh, NC 27601",
+          "property_address": "3184 Highland Avenue, Raleigh, NC 27601",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Farmers",
+          "policy_number": "HO-20682-NC",
+          "policy_current": true,
+          "policy_expiry_date": "2027-03-30"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-06",
+          "review_start_date": "2026-04-06",
+          "review_date_minus_10": "2026-03-27",
+          "review_date_minus_90": "2026-01-06"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Northgate Retail Corp. Other income: $175/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Northgate Retail Corp",
+            "Income For Co Borrower Income source: Northgate Retail Corp. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Northgate Retail Corp"
+          ],
+          "latest_note_date": "2026-04-05"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "4466589567",
+      "borrower_name": "Omar S. Haddad",
+      "coborrower_name": "Leila G. Haddad",
+      "borrower_ssn_last4": "2147",
+      "coborrower_ssn_last4": "9785",
+      "property_address": "2638 Cedar Lane, Portland, OR 97205",
+      "mailing_address": "2638 Cedar Lane, Portland, OR 97205",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-26",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 645.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-12",
+          "loan_type": "Asset",
+          "upb_balance": 234800.0,
+          "investor_type": "GSE",
+          "property_state": "OR",
+          "mailing_address": "2638 Cedar Lane, Portland, OR 97205",
+          "property_address": "2638 Cedar Lane, Portland, OR 97205",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Nationwide",
+          "policy_number": "HO-84766-OR",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-21"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-13",
+          "review_start_date": "2026-04-13",
+          "review_date_minus_10": "2026-04-03",
+          "review_date_minus_90": "2026-01-13"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Cascade Logistics Inc. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Cascade Logistics Inc",
+            "Income For Co Borrower Income source: Cascade Logistics Inc. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Cascade Logistics Inc"
+          ],
+          "latest_note_date": "2026-04-12"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 320.0,
+        "association_name": "Cedar HOA"
+      }
+    },
+    {
+      "loan_id": "8429141456",
+      "borrower_name": "Samantha R. Jennings",
+      "coborrower_name": "Tyler M. Jennings",
+      "borrower_ssn_last4": "5493",
+      "coborrower_ssn_last4": "2392",
+      "property_address": "6897 Maplewood Drive, Raleigh, NC 27601",
+      "mailing_address": "6897 Maplewood Drive, Raleigh, NC 27601",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "Discharged",
+        "chapter": "7",
+        "case_number": "25-38140",
+        "filing_date": "2025-07-08",
+        "closed_date": "2025-11-09"
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-22",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 335.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-04",
+          "loan_type": "Asset",
+          "upb_balance": 387700.0,
+          "investor_type": "GSE",
+          "property_state": "NC",
+          "mailing_address": "6897 Maplewood Drive, Raleigh, NC 27601",
+          "property_address": "6897 Maplewood Drive, Raleigh, NC 27601",
+          "months_delinquent": 1,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Liberty Mutual",
+          "policy_number": "HO-93748-NC",
+          "policy_current": true,
+          "policy_expiry_date": "2027-05-23"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-05",
+          "review_start_date": "2026-04-05",
+          "review_date_minus_10": "2026-03-26",
+          "review_date_minus_90": "2026-01-05"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Maplewood Tech Solutions",
+            "Income For Co Borrower Income source: Maplewood Tech Solutions. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Maplewood Tech Solutions"
+          ],
+          "latest_note_date": "2026-04-04"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 60.0,
+        "association_name": "Maplewood HOA"
+      }
+    },
+    {
+      "loan_id": "3303082117",
+      "borrower_name": "Victor N. Moreno",
+      "coborrower_name": "Sandra M. Moreno",
+      "borrower_ssn_last4": "5447",
+      "coborrower_ssn_last4": "2185",
+      "property_address": "5950 Maplewood Drive, Phoenix, AZ 85004",
+      "mailing_address": "5950 Maplewood Drive, Phoenix, AZ 85004",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "Active",
+        "chapter": "13",
+        "case_number": "26-21265",
+        "filing_date": "2026-09-07",
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-27",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 360.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-03",
+          "loan_type": "Asset",
+          "upb_balance": 317500.0,
+          "investor_type": "GSE",
+          "property_state": "AZ",
+          "mailing_address": "5950 Maplewood Drive, Phoenix, AZ 85004",
+          "property_address": "5950 Maplewood Drive, Phoenix, AZ 85004",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Progressive",
+          "policy_number": "HO-81176-AZ",
+          "policy_current": true,
+          "policy_expiry_date": "2027-03-02"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-04",
+          "review_start_date": "2026-04-04",
+          "review_date_minus_10": "2026-03-25",
+          "review_date_minus_90": "2026-01-04"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Brightway Insurance Agency. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Brightway Insurance Agency",
+            "Income For Co Borrower Income source: Brightway Insurance Agency. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Brightway Insurance Agency"
+          ],
+          "latest_note_date": "2026-04-03"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "2625792787",
+      "borrower_name": "Laura F. Fitzgerald",
+      "coborrower_name": "Hector K. Fitzgerald",
+      "borrower_ssn_last4": "0693",
+      "coborrower_ssn_last4": "5776",
+      "property_address": "1411 Oak Street, Denver, CO 80202",
+      "mailing_address": "1411 Oak Street, Denver, CO 80202",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "Sale Scheduled",
+        "referral_date": "2026-07-23",
+        "sale_date": "2027-02-04"
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-06",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 295.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-09",
+          "loan_type": "Asset",
+          "upb_balance": 170100.0,
+          "investor_type": "GSE",
+          "property_state": "CO",
+          "mailing_address": "1411 Oak Street, Denver, CO 80202",
+          "property_address": "1411 Oak Street, Denver, CO 80202",
+          "months_delinquent": 3,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-99006-CO",
+          "policy_current": true,
+          "policy_expiry_date": "2027-02-24"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-10",
+          "review_start_date": "2026-04-10",
+          "review_date_minus_10": "2026-03-31",
+          "review_date_minus_90": "2026-01-10"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Northgate Retail Corp. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Northgate Retail Corp",
+            "Income For Co Borrower Income source: Northgate Retail Corp. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Northgate Retail Corp"
+          ],
+          "latest_note_date": "2026-04-09"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 380.0,
+        "association_name": "Oak HOA"
+      }
+    },
+    {
+      "loan_id": "7665963761",
+      "borrower_name": "Kenji R. Takahashi",
+      "coborrower_name": null,
+      "borrower_ssn_last4": "5922",
+      "coborrower_ssn_last4": null,
+      "property_address": "5792 Sunset Boulevard, Seattle, WA 98103",
+      "mailing_address": "5792 Sunset Boulevard, Seattle, WA 98103",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-17",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 400.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-19",
+          "loan_type": "Asset",
+          "upb_balance": 212800.0,
+          "investor_type": "GSE",
+          "property_state": "WA",
+          "mailing_address": "5792 Sunset Boulevard, Seattle, WA 98103",
+          "property_address": "5792 Sunset Boulevard, Seattle, WA 98103",
+          "months_delinquent": 1,
+          "number_of_borrowers": 1
+        },
+        "HAZ1": {
+          "carrier": "Allstate",
+          "policy_number": "HO-51553-WA",
+          "policy_current": true,
+          "policy_expiry_date": "2027-04-14"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-21",
+          "review_start_date": "2026-03-21",
+          "review_date_minus_10": "2026-03-11",
+          "review_date_minus_90": "2025-12-21"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Granite Peak Energy. No other income.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Granite Peak Energy"
+          ],
+          "latest_note_date": "2026-03-20"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": true,
+        "monthly_amount": 420.0,
+        "association_name": "Sunset HOA"
+      }
+    },
+    {
+      "loan_id": "8995970241",
+      "borrower_name": "Diana J. Alvarez",
+      "coborrower_name": "Marco E. Alvarez",
+      "borrower_ssn_last4": "0464",
+      "coborrower_ssn_last4": "1330",
+      "property_address": "8840 Willow Court, Tampa, FL 33602",
+      "mailing_address": "8840 Willow Court, Tampa, FL 33602",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "None",
+        "chapter": null,
+        "case_number": null,
+        "filing_date": null,
+        "closed_date": null
+      },
+      "foreclosure": {
+        "status": "In Process",
+        "referral_date": "2026-09-17",
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-02-21",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 615.0
+        },
+        "DLQ1": {
+          "due_date": "2026-05-08",
+          "loan_type": "Asset",
+          "upb_balance": 250500.0,
+          "investor_type": "GSE",
+          "property_state": "FL",
+          "mailing_address": "8840 Willow Court, Tampa, FL 33602",
+          "property_address": "8840 Willow Court, Tampa, FL 33602",
+          "months_delinquent": 3,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Farmers",
+          "policy_number": "HO-89516-FL",
+          "policy_current": true,
+          "policy_expiry_date": "2026-12-07"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-04-09",
+          "review_start_date": "2026-04-09",
+          "review_date_minus_10": "2026-03-30",
+          "review_date_minus_90": "2026-01-09"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Cascade Logistics Inc. Other income: $275/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Cascade Logistics Inc",
+            "Income For Co Borrower Income source: Cascade Logistics Inc. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Cascade Logistics Inc"
+          ],
+          "latest_note_date": "2026-04-08"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    },
+    {
+      "loan_id": "3479708607",
+      "borrower_name": "Ryan F. Whitaker",
+      "coborrower_name": "Chloe S. Whitaker",
+      "borrower_ssn_last4": "8108",
+      "coborrower_ssn_last4": "9789",
+      "property_address": "8271 Lakeview Drive, Charlotte, NC 28202",
+      "mailing_address": "8271 Lakeview Drive, Charlotte, NC 28202",
+      "loan_type": "Asset",
+      "bankruptcy": {
+        "status": "Dismissed",
+        "chapter": "13",
+        "case_number": "25-21889",
+        "filing_date": "2025-05-01",
+        "closed_date": "2025-11-07"
+      },
+      "foreclosure": {
+        "status": "None",
+        "referral_date": null,
+        "sale_date": null
+      },
+      "servicing_data": {
+        "ANA1": {
+          "tax_bill_date": "2026-03-06",
+          "escrow_current": true,
+          "tax_bill_on_file": true,
+          "escrow_payment_amount": 315.0
+        },
+        "DLQ1": {
+          "due_date": "2026-04-23",
+          "loan_type": "Asset",
+          "upb_balance": 144300.0,
+          "investor_type": "GSE",
+          "property_state": "NC",
+          "mailing_address": "8271 Lakeview Drive, Charlotte, NC 28202",
+          "property_address": "8271 Lakeview Drive, Charlotte, NC 28202",
+          "months_delinquent": 2,
+          "number_of_borrowers": 2
+        },
+        "HAZ1": {
+          "carrier": "Nationwide",
+          "policy_number": "HO-90090-NC",
+          "policy_current": true,
+          "policy_expiry_date": "2026-12-01"
+        },
+        "LMT1": {
+          "mod_status": null,
+          "loan_type_status": "",
+          "status_description": "Partially Claimed"
+        },
+        "LMT3": {
+          "l92_date": "2026-03-25",
+          "review_start_date": "2026-03-25",
+          "review_date_minus_10": "2026-03-15",
+          "review_date_minus_90": "2025-12-25"
+        },
+        "NOTS": {
+          "notes": [
+            "Borrower submitted MAA,Paystubs,Credit Report,Bank Statement,Letter Of Explanation via email and They Are uploaded in MIR.",
+            "Income For Borrower Income source: Redwood Financial Group. Other income: $225/mo freelance consulting.",
+            "Wage Paid Semi-Monthly For Borrower",
+            "The Source Of Borrower Wages Is Redwood Financial Group",
+            "Income For Co Borrower Income source: Redwood Financial Group. No other income.",
+            "Wage Paid Semi-Monthly For Co Borrower",
+            "The Source Of Co Borrower Wages Is Redwood Financial Group"
+          ],
+          "latest_note_date": "2026-03-24"
+        },
+        "USR2": {
+          "status": "Partially-Claimed"
+        }
+      },
+      "hoa": {
+        "hoa_exists": false,
+        "monthly_amount": 0.0,
+        "association_name": null
+      }
+    }
+  ]
+}

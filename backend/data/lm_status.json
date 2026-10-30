@@ -1,0 +1,1116 @@
+{
+  "meta": {
+    "primary_key": "loan_id",
+    "total_loans": 30
+  },
+  "lm_stage_config": [
+    {
+      "stage_no": 1,
+      "stage_name": "Intake",
+      "allowed_statuses": [
+        "Complete",
+        "Invalid Date Doc",
+        "Missing Doc",
+        "Missing & Invalid",
+        "End Case",
+        "In Human Review"
+      ]
+    },
+    {
+      "stage_no": 2,
+      "stage_name": "Retention Eligibility",
+      "allowed_statuses": [
+        "Facially Complete",
+        "Denied",
+        "Facially Incomplete",
+        "In Human Review"
+      ]
+    },
+    {
+      "stage_no": 3,
+      "stage_name": "Trial UW",
+      "allowed_statuses": [
+        "Ready",
+        "UW In Progress",
+        "Hold Docs Pending",
+        "Hold Approval Pending",
+        "Declined",
+        "In Human Review"
+      ]
+    },
+    {
+      "stage_no": 4,
+      "stage_name": "Trial Monitoring",
+      "allowed_statuses": [
+        "Completed",
+        "Within Plan",
+        "Delayed Payment",
+        "Defaulted",
+        "In Human Review"
+      ]
+    },
+    {
+      "stage_no": 5,
+      "stage_name": "Closing",
+      "allowed_statuses": [
+        "Recording",
+        "Signed Off",
+        "Sign Off & In Progress",
+        "Denied",
+        "In Human Review"
+      ]
+    }
+  ],
+  "loans": [
+    {
+      "loan_id": "1234567890",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "3746317213",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "9697354961",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "2181241943",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "1958682846",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "4163119785",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "9963334018",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "2812140441",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "1127978094",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "1939042955",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "9703905715",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "7635473142",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "6241752544",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "7825844140",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "4460967357",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "8293453178",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "6756332150",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "1667779376",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "2445662585",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "5693307665",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "5710360983",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "8934927891",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "7887950851",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "4466589567",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "8429141456",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "3303082117",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "2625792787",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "7665963761",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "8995970241",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "loan_id": "3479708607",
+      "lm_stages": [
+        {
+          "stage_no": 1,
+          "stage_name": "Intake",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 2,
+          "stage_name": "Retention Eligibility",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 3,
+          "stage_name": "Trial UW",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 4,
+          "stage_name": "Trial Monitoring",
+          "status": "",
+          "remark": ""
+        },
+        {
+          "stage_no": 5,
+          "stage_name": "Closing",
+          "status": "",
+          "remark": ""
+        }
+      ]
+    }
+  ]
+}

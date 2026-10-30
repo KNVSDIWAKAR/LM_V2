@@ -1,0 +1,52 @@
+process: trial_monitoring
+stage_no: 4
+name: Trial Monitoring
+agent: Trial Monitoring Agent
+rules: rules.yaml
+start: load_case
+
+nodes:
+  load_case:
+    title: "1 · Load the approved trial plan and MSP DLQ1"
+    run: trial_monitoring.load_case
+    routes:
+      pass: match_payments
+      review: review
+
+  match_payments:
+    title: "2 · Match DLQ1 payments to trial installments"
+    run: trial_monitoring.match_payments
+    next: determine_completion
+
+  determine_completion:
+    title: "3 · Write the LMT note and decide trial completion"
+    run: trial_monitoring.determine_completion
+    routes:
+      completed: complete
+      within_plan: within_plan
+      delayed: delayed
+      defaulted: defaulted
+      review: review
+
+  review:
+    title: "People · Trial monitoring review"
+    gate: human_review
+    team: $trial_monitoring.reviewer_team
+    status: In Human Review
+    on_approve: complete
+    on_reject: defaulted
+
+  complete:
+    end: true
+    status: Completed
+    advance: true
+  within_plan:
+    end: true
+    status: Within Plan
+  delayed:
+    end: true
+    status: Delayed Payment
+  defaulted:
+    end: true
+    status: Defaulted
+    team: Onshore

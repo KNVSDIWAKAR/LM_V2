@@ -1,0 +1,223 @@
+version: "2026.10.30"
+
+# One Stage 5 page/process: the V1 Final Underwriting checks first, then the five
+# deterministic Final Mod checks carried over from Mortgage_Agentic_Workbench lm_final_mod.yaml.
+# Every check reads the database: MSP screens (TASK1, MES1, LSMR, LMT3, DLQ1), the extracted
+# neighbourhood document, trial_plans, lm_stages and closing_qc (MOD QC / sign-off / recording).
+final_underwriting:
+  teams:
+    hold: Team Lead # escalation agent: hold / review → Team Lead
+    mod_qc: MOD QC
+    sign_off: Human Sign-off
+  entry:
+    required_trial_monitoring_status: Completed
+  hold_tasks:
+    task_sources: [TASK1, MES1]
+    task_ids:
+      [
+        BKCASH,
+        BKLMCA,
+        FCCOST,
+        FCBLCR,
+        RCLSRV,
+        ESCMO1,
+        ESCMOD,
+        DCPAPP,
+        DEFCSH,
+        FLDCOW,
+        FLDMD2,
+        DCPCRP,
+        PLNMTR,
+      ]
+    completed_statuses: [Completed]
+    hold_statuses: [Open, Incomplete]
+  scra:
+    interest_rate_threshold: 5.50 # LSMR.current_interest_rate (DLQ1.interest_rate if LSMR has none)
+    action_at_or_above_threshold: REVIEW
+    legal_search: false
+  neighbourhood:
+    date_format: "%m/%d/%Y"
+    max_age_days: 365
+    required_fields:
+      [
+        document_date,
+        borrower_name,
+        property_address,
+        upb,
+        prior_partial_claim_amounts,
+      ]
+    compare_available_msp_identity_and_upb: true
+    upb_tolerance: 1.00
+  lsmr_terms:
+    required_fields:
+      [
+        current_interest_rate,
+        new_interest_rate,
+        new_term_months,
+        new_principal_balance,
+        new_payment_amount,
+      ]
+    positive_numeric_fields:
+      [
+        current_interest_rate,
+        new_interest_rate,
+        new_principal_balance,
+        new_payment_amount,
+      ]
+    new_term_months_must_be_positive_integer: true
+    calculate_or_approve_payment_formula: false
+  lmt3:
+    date_keys: [x65_date, e74_date, j03_date, x58_date, e68_date]
+    strict_sequence: true
+    working_weekdays: [0, 1, 2, 3, 4] # Monday = 0
+    update_msp: false
+  handoff:
+    mir_mode: "Display only · no integration"
+    escalation_mode: "Simulated only · not sent"
+
+final_mod_closing:
+  settings:
+    sla_days: 14
+    county_recording_states: [OH, NY]
+  # trial_outcome comes from the persisted Stage 4 status.
+  trial_outcome_from_stage4: { Completed: completed, Defaulted: broken }
+  inputs:
+    trial_outcome: lm_stages.trial_monitoring_status
+    borrower_property_verified: closing_qc.borrower_property_verified
+    principal_matches_msp: closing_qc.principal_matches_msp
+    new_terms_match_plan: closing_qc.new_terms_match_plan
+    state: msp.dlq1.property_state
+    days_since_approval: today − closing_qc.mod_approved_at (Human Sign-off)
+    recorded_date: closing_qc.recorded_date
+  recording_sla_logic:
+    state_not_in_county_recording_states: not_applicable
+    recorded_date_present: pass
+    not_recorded_and_days_since_approval_greater_than_sla: flagged
+    not_recorded_and_within_sla: pending
+  checks:
+    - id: trial_outcome
+      label: Trial outcome
+      skill: check_trial_outcome
+      params: { field: trial_outcome }
+      messages:
+        pass: "Trial completed."
+        flagged: "Trial broken."
+        pending: "Trial in progress."
+
+    - id: borrower_property
+      label: Borrower & property match the Note
+      skill: check_flag_verified
+      tags: [qc]
+      params: { field: borrower_property_verified }
+      messages:
+        pass: "Verified."
+        pending: "Pending QC review."
+        flagged: "Mismatch found."
+
+    - id: principal_balance
+      label: Principal balance matches MSP
+      skill: check_flag_verified
+      tags: [qc]
+      requires: { trial_outcome: pass }
+      params: { field: principal_matches_msp }
+      messages:
+        pass: "Verified."
+        pending: "Pending QC review."
+        flagged: "Mismatch found."
+
+    - id: new_terms
+      label: New terms match the approved plan
+      skill: check_flag_verified
+      tags: [qc]
+      requires: { trial_outcome: pass }
+      params: { field: new_terms_match_plan }
+      messages:
+        pass: "Verified."
+        pending: "Pending QC review."
+        flagged: "Mismatch found."
+
+    - id: recording_sla
+      label: Recording & SLA
+      skill: check_recording_sla
+      params:
+        state_field: state
+        days_field: days_since_approval
+        recorded_field: recorded_date
+      messages:
+        pass: "Recorded {recorded_date} in {state}."
+        pending: "{state} requires county recording; {days_left} day(s) left in SLA."
+        flagged: "{state} requires county recording; {days_over} day(s) over SLA."
+        not_applicable: "{state} — no recording-state critical path."
+
+  facts:
+    trial_status: { type: check_status, check: trial_outcome }
+    recording_status: { type: check_status, check: recording_sla }
+    qc_pass: { type: count_checks, tag: qc, status: pass }
+    qc_total: { type: count_checks, tag: qc }
+    qc_complete: { type: compare, left: qc_pass, op: eq, right: qc_total }
+
+  # First matching rule wins, as in the legacy Final Mod configuration.
+  # Policy edge case kept from legacy: QC complete + recording still pending (inside SLA) → signed_off.
+  verdict_rules:
+    - { verdict: denied, when: { fact: trial_status, op: eq, value: flagged } }
+    - {
+        verdict: human_review,
+        when: { fact: recording_status, op: eq, value: flagged },
+      }
+    - {
+        verdict: sign_off_in_progress,
+        when: { fact: qc_complete, op: eq, value: false },
+      }
+    - {
+        verdict: recording,
+        when: { fact: recording_status, op: eq, value: pass },
+      }
+    - { verdict: signed_off }
+
+  verdicts:
+    recording:
+      label: Recording
+      tone: green
+      group: moving_forward
+      description: "QC complete and county recording done."
+    signed_off:
+      label: Signed Off
+      tone: green
+      group: moving_forward
+      description: "QC complete, no recording blocker."
+    sign_off_in_progress:
+      label: Sign Off & In Progress
+      tone: amber
+      group: needs_attention
+      description: "QC checks still pending."
+      action:
+        label: Push QC
+        severity: medium
+        show_checks: [new_terms, recording_sla]
+    denied:
+      label: Denied
+      tone: red
+      group: needs_attention
+      description: "Trial broken - modification cannot close."
+      action:
+        label: Investigate
+        severity: high
+        show_checks: [trial_outcome, borrower_property]
+    human_review:
+      label: In Human Review
+      tone: amber
+      group: needs_attention
+      description: "SLA breached - needs a human decision."
+      action:
+        label: Investigate
+        severity: high
+        show_checks: [recording_sla]
+
+  groups:
+    - { id: moving_forward, label: Moving forward, tone: green }
+    - { id: needs_attention, label: Needs attention, tone: amber }
+
+  pending_actions:
+    title: Pending actions
+    severity_order: [high, medium, low]
+    item_title: "{verdict_label} — {loan_id} ({borrower_name})"

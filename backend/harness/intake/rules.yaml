@@ -1,0 +1,38 @@
+# Kairos 2 · Domain harness — the rules of Process 1 (Intake & Doc Review).
+#
+# Change behaviour here, not in code. Bump `version` on every change: each agent run records
+# the version it used, so you can always tell which rules produced a decision.
+
+version: "2026.10.2"
+
+# ── BK / FC and the 60-day rule (step 2) ──────────────────────────────────────
+bk_fc:
+  bk_active_statuses: [Active]          # msp.bankruptcy.status values that end the case
+  bk_team: Onshore                      # who takes a case that ends on BK
+  sale_window_days: 60                  # a foreclosure sale this close (or closer) → LM Oversight
+  oversight_team: LM Oversight
+
+# ── Document checks (step 3) ──────────────────────────────────────────────────
+documents:
+  # Documents every package must contain.
+  required: [application_form]
+
+  # Application-form fields that must match MSP. Names compare case- and punctuation-insensitively.
+  match_msp:
+    borrower_name: true
+    coborrower_name: true
+    borrower_ssn_last4: true
+    coborrower_ssn_last4: true
+    property_address: true
+
+review:
+  mismatch_team: LM Oversight
+
+# ── Sensors (Kairos 4) ────────────────────────────────────────────────────────
+sla:
+  intake_hours: 24          # documents received (extracted_at) → intake finished
+
+# ── Handoff (step 4) ──────────────────────────────────────────────────────────
+handoff:
+  team: LM Setup
+  checklist: [application_form]

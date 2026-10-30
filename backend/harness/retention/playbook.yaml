@@ -1,0 +1,227 @@
+# Process 2: each question is a node; Python returns outcomes, YAML owns every edge.
+process: retention
+stage_no: 2
+name: Retention Eligibility
+agent: Retention Eligibility Agent
+rules: rules.yaml
+start: load_case
+nodes:
+  load_case:
+    run: retention.load_case
+    next: Q1
+  Q1:
+    title: Desired workflow?
+    run: retention.Q1
+    routes: {Retention: Q2, Liquidation: liquidation_exit}
+  Q2:
+    title: Currently approved for a long-term option?
+    run: retention.Q2
+    routes: {'yes': approved_exit, 'no': investor_rules, unknown: investor_rules}
+  investor_rules:
+    title: Apply investor form exemptions
+    run: retention.investor_rules
+    routes: {standard: Q3, va: Q3_VA, exempt: form_exempt_exit}
+  Q3_VA:
+    title: VA request only — form checks not required
+    run: retention.va_request
+    next: verdict
+  Q3:
+    title: Application signed by all required borrowers?
+    run: retention.Q3
+    routes: {'yes': signature_checks, 'no': Q4, unknown: signature_checks}
+  Q4:
+    title: Signed by any borrower?
+    run: retention.Q4
+    next: signature_checks
+  signature_checks:
+    run: retention.signature_checks
+    routes: {single: QX, joint: QX}
+  QX:
+    title: Death, divorce, separation or quit-claim documents?
+    run: retention.QX
+    next: Q4b
+  Q4b:
+    title: Application has all pages?
+    run: retention.Q4b
+    next: Q5
+  Q5:
+    title: L92 date?
+    run: retention.Q5
+    next: Q6
+  Q6:
+    title: Occupancy status?
+    run: retention.Q6
+    next: Q7
+  Q7:
+    title: Hardship or reason for default?
+    run: retention.Q7
+    next: Q8
+  Q8:
+    title: Evidence of HOA fees?
+    run: retention.Q8
+    routes: {'yes': Q8a, 'no': Q9, unknown: Q9}
+  Q8a:
+    title: HOA fee amount available?
+    run: retention.Q8a
+    next: Q9
+  Q9:
+    title: Non-borrower household contributions?
+    run: retention.Q9
+    routes: {'yes': Q9a, 'no': Q10, unknown: Q10}
+  Q9a:
+    run: retention.Q9a
+    next: Q9b
+  Q9b:
+    run: retention.Q9b
+    next: Q9c
+  Q9c:
+    run: retention.Q9c
+    next: Q9d
+  Q9d:
+    run: retention.Q9d
+    next: Q9e
+  Q9e:
+    run: retention.Q9e
+    next: Q10
+  Q10:
+    title: Income types present?
+    run: retention.Q10
+    routes: {wages: Q10a, other: other_income_document, unknown: Q30}
+  Q10a:
+    title: Wage income calculation document?
+    run: retention.Q10a
+    next: Q11
+  other_income_document:
+    title: Other income calculation document?
+    run: retention.other_income_document
+    next: Q30
+  Q11:
+    title: How many primary-borrower wage sources?
+    run: retention.Q11
+    next: Q12
+  Q12:
+    title: Source or employer for current wage?
+    run: retention.Q12
+    next: Q13
+  Q13:
+    title: Recent paystub count?
+    run: retention.Q13
+    next: Q14
+  Q14:
+    title: Pay frequency?
+    run: retention.Q14
+    next: Q15
+  Q15:
+    title: Handwritten paystubs?
+    run: retention.Q15
+    routes: {'yes': Q15a, 'no': Q16, unknown: Q16}
+  Q15a:
+    title: Valid offer letter or employment verification?
+    run: retention.Q15a
+    next: Q16
+  Q16:
+    title: Two sequential paystubs?
+    run: retention.Q16
+    next: Q17
+  Q17:
+    title: Latest paystub has YTD earnings and deductions?
+    run: retention.Q17
+    next: Q18
+  Q18:
+    title: Variable pay?
+    run: retention.Q18
+    next: Q19
+  Q19:
+    title: School wage source?
+    run: retention.Q19
+    next: next_wage
+  next_wage:
+    title: Repeat questions for the next wage source
+    run: retention.next_wage
+    routes: {more: Q12, done: Q30}
+  Q30:
+    title: Unexplained recurring deposits?
+    run: retention.Q30
+    next: Q31
+  Q31:
+    title: Another non-US Bank mortgage?
+    run: retention.Q31
+    next: Q32
+  Q32:
+    title: Mailing address differs from property address?
+    run: retention.Q32
+    next: Q33
+  Q33:
+    title: Current valid insurance policy?
+    run: retention.Q33
+    next: Q34
+  Q34:
+    title: Current property tax bill?
+    run: retention.Q34
+    next: Q35
+  Q35:
+    title: USDA credit freeze?
+    run: retention.Q35
+    next: Q36
+  Q36:
+    title: Documents authentic and unaltered?
+    run: retention.Q36
+    routes: {'yes': CALC_Q1, 'no': verdict, unknown: verdict}
+  CALC_Q1:
+    run: retention.CALC_Q1
+    next: CALC_Q2
+  CALC_Q2:
+    run: retention.CALC_Q2
+    next: CALC_Q3
+  CALC_Q3:
+    run: retention.CALC_Q3
+    next: CALC_Q4
+  CALC_Q4:
+    run: retention.CALC_Q4
+    next: verdict
+  verdict:
+    title: Stips mean incomplete; otherwise complete (confidence ignored)
+    run: retention.verdict
+    routes: {incomplete: incomplete, complete: complete}
+  # Retained solely so previously paused runs can still resume via Decision Inbox.
+  # New evaluations never enter this legacy gate.
+  human_review:
+    title: Legacy review — retained for previously paused runs
+    gate: human_review
+    team: $review.team
+    status: In Human Review
+    on_approve: complete
+    on_reject: denied
+  incomplete:
+    end: true
+    status: Facially Incomplete
+  manual_review:
+    title: Review outstanding retention stips (approval does not waive documents)
+    gate: human_review
+    team: $review.team
+    status: In Human Review
+    on_approve: manual_result
+    on_reject: denied
+  manual_result:
+    run: retention.manual_result
+    routes: {incomplete: incomplete, denied: denied}
+  complete:
+    end: true
+    status: Facially Complete
+    advance: true
+  denied:
+    end: true
+    status: Denied
+  liquidation_exit:
+    title: Exit — Liquidation workflow (not a retention denial on merits)
+    end: true
+    status: Denied
+  approved_exit:
+    title: Exit — Post-Underwriting workflow
+    end: true
+    status: Denied
+  form_exempt_exit:
+    title: FNMA over nine months — no form checks required
+    end: true
+    status: Facially Complete
+    advance: true

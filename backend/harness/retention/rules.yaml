@@ -1,0 +1,195 @@
+version: '2026.10.23.4'
+engine:
+  recursion_limit: 10000
+# Audit metadata only: confidence does not affect verdicts, badges or human routing.
+review:
+  team: LM Oversight
+thresholds:
+  minimum_pages: 4
+  minimum_paystubs: 2
+  sequential_gap_days: 1
+  deposit_amount: 250
+  deposit_months: 2
+  proxy_sale_days: 365
+# Q16 accepts adjacent pay periods OR consecutive coverage months, using period end
+# (not the later payment date). Same primary borrower and employer remain required.
+paystub_sequence:
+  allow_consecutive_months: true
+  month_gap: 1
+investors:
+  GSE: {forms: [MAA, UBAF], bank_required: true, payroll_as_paystubs: true}
+  FNMA: {forms: [MAA, UBAF], bank_required: true, payroll_as_paystubs: true, form_exempt_after_months: 9}
+  FHLMC: {forms: [MAA, UBAF], bank_required: true, payroll_as_paystubs: true}
+  FHA: {forms: [MAA, UBAF], borrower_only_signature: true}
+  VA: {forms: [], request_only: true}
+  USDA: {forms: [RMA, MAA, UBAF], credit_required: true}
+  Asset: {forms: [MAA, UBAF]}
+gse_investors: [GSE, FNMA, FHLMC]
+calculator_states: [CA, MN]
+default_workflow: Retention
+business_weekend_days: [5, 6]
+workflow_keywords:
+  Liquidation: [liquidation, sell the property, short sale, deed in lieu, surrender]
+  Retention: [retention, keep the property, keep property]
+occupancy_keywords:
+  Non-Owner Occupied: [non owner, non-owner]
+  Rental Occupied: [rental, tenant]
+  Vacant: [vacant, unoccupied]
+  Owner Occupied: [owner occupied, owner-occupied, primary residence]
+hardship_keywords:
+  Unemployment / Job Loss: [unemployment, job loss, laid off]
+  Illness or Medical Expenses: [illness, medical, sick]
+  Reduction in Income: [reduction in income, reduced income, income reduction]
+  Divorce or Legal Separation: [divorce, separation]
+  Business Failure: [business failure, business closure]
+  Disaster: [disaster, flood, hurricane, wildfire]
+  Death of Borrower or Co-Borrower: [death, deceased]
+  Excessive Financial Obligations: [excessive financial, excessive obligations, excessive debt]
+  Military Deployment: [military, deployment]
+  Incarceration: [incarceration, incarcerated, prison]
+  Other Hardship: [other hardship, other]
+income_keywords:
+  Wages: [wage, salar, payroll, overtime, commission]
+  Social Security: [social security, ssa, disability]
+  Self-Employment: [self employment, self-employment, freelance, consulting]
+  Pension: [pension, retirement]
+  Rental: [rental, rent income]
+  Child Support: [child support]
+  Alimony: [alimony, spousal support]
+  Unemployment: [unemployment, jobless]
+  Investment: [investment, dividend, interest income]
+  Public Assistance: [public assistance, welfare]
+  Contribution: [contribution, third party, third-party, non borrower, non-borrower]
+  Other: [other]
+income_documents:
+  Wages: [paystubs, bank_statement]
+  Social Security: [bank_statement]
+  Self-Employment: [letter_of_explanation, bank_statement]
+  Pension: [bank_statement]
+  Rental: [bank_statement, letter_of_explanation]
+  Child Support: [bank_statement, letter_of_explanation]
+  Alimony: [bank_statement, letter_of_explanation]
+  Unemployment: [bank_statement]
+  Investment: [bank_statement]
+  Public Assistance: [bank_statement]
+  Contribution: [bank_statement, letter_of_explanation]
+  Other: [letter_of_explanation, bank_statement]
+school_keywords: [school, university, district, college, academy]
+hoa_keywords: [hoa, condo, co-op, ground rent, homeowners association]
+contribution_keywords: [contribution, third party, third-party, non borrower, non-borrower, family support, gift from]
+payroll_keywords: [payroll, direct dep, salary, wages]
+submission_keywords: [submitted, received, sent, uploaded]
+submission_channel_keywords: [email, fax, mail, portal, lms, mir]
+mortgage_keywords: [another mortgage, second mortgage, other mortgage]
+mortgage_type_keywords: [mortgage]
+loe_sufficient_values: [true, 'yes']
+default_income_type: Other
+default_hardship_type: Other Hardship
+own_servicer_keywords: [us bank, u s bank, usbank]
+document_keywords: [death certificate, divorce agreement, separation agreement, quit claim, quit-claim]
+# QX is conditional, not an unconditional missing-document requirement.
+hardship_documents:
+  death:
+    hardship_keywords: [death, deceased, passed away, bereavement]
+    document_keywords: [death certificate]
+    document_required: Death certificate
+  separation:
+    hardship_keywords: [divorce, divorced, separation, separated]
+    document_keywords: [divorce agreement, divorce decree, separation agreement, quit claim deed, quit-claim deed]
+    document_required: Divorce/separation agreement or quit-claim deed
+document_received_keywords: [received, submitted, provided, uploaded, on file, available, reviewed]
+document_missing_keywords: [no, not, missing, pending, requested, required, needed, awaiting, unavailable]
+date_only_questions: [Q5, CALC_Q4]
+employment_document_keywords: [offer letter, verification of employment, voe]
+authenticity_flags: [authenticity_concern, document_altered, suspected_fraud, forged_signature, tampered_document]
+authenticity_flag_keywords: [authenticity, altered, forgery, forged, tamper, fraud]
+note_employer_patterns:
+  - 'source of borrower wages is (.+)$'
+  - 'income for borrower income source:\s*([^.;]+)'
+frequency_keywords:
+  Bi-Weekly: [bi-weekly, biweekly, bi weekly]
+  Semi-Monthly: [semi-monthly, semimonthly, semi monthly]
+  Weekly: [weekly]
+  Monthly: [monthly]
+  Unknown: [unknown]
+frequency_intervals:
+  Weekly: [6, 8]
+  Bi-Weekly: [13, 15]
+  Semi-Monthly: [15, 16]
+  Monthly: [28, 31]
+same_address_keywords: [same as property address]
+address_abbreviations: {street: st, drive: dr, avenue: ave, road: rd, boulevard: blvd, lane: ln, court: ct, apartment: apt}
+questions:
+  Q1: Desired workflow?
+  Q2: Is the loan currently approved for a long-term option?
+  Q3: Was the application signed by all required borrowers?
+  Q4: Was the application signed by any borrower?
+  QX: Is there a death certificate, divorce/separation agreement or quit-claim deed for any borrower?
+  Q4b: Does the application have all pages (minimum 4 content pages, revision date printed)?
+  Q5: What is the L92 date?
+  Q6: What is the occupancy status?
+  Q7: What is the hardship or reason for default?
+  Q8: Is there evidence of HOA / Condo / Co-op / Ground Rent fees?
+  Q8a: Is an HOA / Condo / Co-op / Ground Rent fee amount available?
+  Q9: Is there evidence of a non-borrower contributing to the household?
+  Q9a: Was contribution evidence received by email?
+  Q9b: Was contribution evidence received via fax cover?
+  Q9c: Do NOTS comments describe contributions?
+  Q9d: Was contribution evidence received by LMS online upload?
+  Q9e: Was contribution evidence received through MIR?
+  Q10: What income types are present?
+  Q10a: Which document type will be used to calculate income?
+  Q11: How many wage sources does the primary borrower have?
+  Q12: What is the employer/source name for this wage?
+  Q13: How many recent paystubs identify the primary borrower for this wage source?
+  Q14: What is the pay frequency?
+  Q15: Are the paystubs handwritten?
+  Q15a: Is there a valid offer letter or verification of employment present?
+  Q16: Are there two consecutive sequential paystubs for this wage source?
+  Q17: Does the most recent paystub have gross YTD earnings and deductions?
+  Q18: Is there variable pay?
+  Q19: Is the source of wages a school?
+  Q30: Are there unexplained recurring deposits of at least $250 for two consecutive months?
+  Q31: Is there evidence of another non-US Bank mortgage?
+  Q32: Is the mailing address different from the property address?
+  Q33: Has the borrower provided a current and valid insurance policy?
+  Q34: Is there a current property tax bill on file?
+  Q35: Is a credit freeze restricting the credit report?
+  Q36: Do all documents appear authentic and unaltered?
+  CALC_Q1: Is there a foreclosure sale date?
+  CALC_Q2: Is this a GSE file?
+  CALC_Q3: Is the property in CA or MN?
+  CALC_Q4: What is the foreclosure sale date (or review-date proxy)?
+# Null answers raise the question's stip unless explicitly informational.
+never_stip: [Q1, QX, Q9a, Q9b, Q9c, Q9d, Q9e, Q10a, Q15, Q15a, Q18, Q19, Q31, CALC_Q1, CALC_Q2, CALC_Q3, CALC_Q4]
+false_stip: [Q3, Q4, Q4b, Q8a, Q16, Q17, Q33, Q34, Q36]
+true_stip: [Q9, Q30, Q32, Q35]
+stips:
+  hardship_document: {category: Hardship, document_required: '{document_required}', reason: '{document_required} required to support the reported hardship: {hardship}'}
+  Q2: {category: MSP, document_required: MSP LMT1 screen, reason: 'MSP LMT1 screen data unavailable - loan type/status cannot be determined'}
+  Q3: {category: Application, document_required: Fully executed MAA, reason: Fully executed MAA form signed by both borrowers}
+  Q4: {category: Application, document_required: Signed MAA, reason: MAA form with at least one valid borrower signature}
+  Q4b: {category: Application, document_required: Complete application, reason: 'Complete MAA form - minimum {minimum_pages} content pages required (Rev date must be printed)'}
+  Q5: {category: Dates, document_required: L92 receipt evidence, reason: 'L92 date cannot be determined - check email sheet, fax cover, or MIR upload record'}
+  Q6: {category: Occupancy, document_required: Occupancy certification, reason: Occupancy certification or updated MAA Page 1 required}
+  Q7: {category: Hardship, document_required: Written hardship explanation, reason: Written hardship explanation or updated MAA Page 2 required}
+  Q8: {category: HOA, document_required: HOA statement, reason: HOA statement or condo/co-op fee documentation}
+  Q8a: {category: HOA, document_required: HOA fee statement, reason: HOA/Condo/Co-op fee statement showing current amount due}
+  Q9: {category: Contributions, document_required: Contribution letter and bank statements, reason: Signed contribution letter from non-borrower + 2 months bank statements showing contribution deposits}
+  Q10: {category: Income, document_required: Income documentation, reason: Income documentation for all income types listed on MAA}
+  income_support: {category: Income, document_required: 'Supporting documentation for {income_type}', reason: 'Supporting document missing for listed income type: {income_type}'}
+  Q11: {category: Income, document_required: Paystubs or bank statements, reason: Paystubs or bank statements showing all wage sources}
+  Q12: {category: Income, document_required: Employer identification, reason: Paystub or bank statement identifying wage source employer}
+  Q13: {category: Income, document_required: Recent paystubs, reason: '2 most recent paystubs dated on or after {review_date_minus_90} for {borrower_name}'}
+  Q14: {category: Income, document_required: Pay frequency evidence, reason: Pay frequency cannot be determined - verify via paystub or MAA}
+  Q16: {category: Income, document_required: Sequential paystubs, reason: 2 consecutive sequential paystubs from the same wage source}
+  Q17: {category: Income, document_required: Latest paystub with YTD and deductions, reason: Most recent paystub showing gross YTD earnings and itemized deductions}
+  Q30: {category: Deposits, document_required: Letter of Explanation, reason: 'Letter of Explanation (LOE) for all recurring deposits >= $250 from the same source for 2+ consecutive months'}
+  bank_missing: {category: Deposits, document_required: Recent bank statements, reason: 'Bank statements dated on or after {review_date_minus_90} required'}
+  Q32: {category: Address, document_required: Address verification, reason: Address verification letter or updated application confirming correct mailing address}
+  Q33: {category: Insurance, document_required: Current homeowner insurance, reason: "Current homeowner's insurance policy with expiry date on or after today"}
+  Q34: {category: Taxes, document_required: Property tax bill, reason: Current property tax bill or escrow account confirmation}
+  Q35: {category: Credit, document_required: Internal credit report / freeze validation (not borrower requested), reason: Credit freeze lift confirmation or new credit report with active tradelines}
+  credit_missing: {category: Credit, document_required: Internal credit report (not borrower requested), reason: 'Credit report dated on or after {review_date_minus_90} required'}
+  Q36: {category: Escalation, document_required: Supervisor authenticity review, reason: 'ESCALATE TO SUPERVISOR - document authenticity concern identified. Do not proceed until supervisor reviews the file.'}
+  form_type: {category: Application, document_required: 'Accepted application ({forms})', reason: 'Investor {investor} accepts only {forms} forms'}

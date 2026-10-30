@@ -1,0 +1,69 @@
+process: trial_uw
+stage_no: 3
+name: Trial Underwriting
+agent: Trial Underwriting Agent
+rules: rules.yaml
+start: load_case
+
+nodes:
+  load_case:
+    title: "1 · Ingest Retention result and clarifier output"
+    run: trial_uw.load_case
+    next: check_documents
+
+  check_documents:
+    title: "2 · Check the underwriting package"
+    run: trial_uw.check_documents
+    routes:
+      pass: check_eligibility
+      hold_docs: hold_docs
+
+  check_eligibility:
+    title: "3 · Investor constraints and approval holds"
+    run: trial_uw.check_eligibility
+    routes:
+      pass: calculate_terms
+      hold_approval: hold_approval
+      declined: declined
+
+  calculate_terms:
+    title: "4 · Calculate income, payment and escrow"
+    run: trial_uw.calculate_terms
+    routes:
+      pass: validate_payment_terms
+      hold_docs: hold_docs
+
+  validate_payment_terms:
+    title: "5 · Validate affordability, term, rate and escrow"
+    run: trial_uw.validate_payment_terms
+    routes:
+      pass: prepare_trial_plan
+      declined: declined
+
+  prepare_trial_plan:
+    title: "6 · Prepare the Trial Plan package"
+    run: trial_uw.prepare_trial_plan
+    next: underwriter_review
+
+  underwriter_review:
+    title: "People · Human Underwriter approves the trial plan"
+    gate: human_review
+    team: $trial_uw.reviewer_team
+    status: In Human Review
+    on_approve: complete
+    on_reject: declined
+
+  hold_docs:
+    end: true
+    status: Hold Docs Pending
+  hold_approval:
+    end: true
+    status: Hold Approval Pending
+  declined:
+    end: true
+    status: Declined
+    team: Onshore
+  complete:
+    end: true
+    status: Ready
+    advance: true

@@ -1,0 +1,68 @@
+version: "2026.10.30"
+
+# Stage 3 · Trial Underwriting. Every amount the agent proposes is calculated from these
+# parameters and the loan's own MSP / extracted-document data; nothing is defaulted.
+trial_uw:
+  reviewer_team: Human Underwriter # approves the plan → Ready
+  decline_team: Onshore # rejection / hard decline escalates here
+
+  entry:
+    required_retention_status: Facially Complete
+
+  documents:
+    required: [application_form, paystubs, bank_statement, credit_report]
+    minimum_paystubs: 1
+
+  # MSP LMT1 status / status_description or USR2 status meaning an approval is still outstanding.
+  approval_hold_statuses: ["Pending Approval", "Awaiting Approval", "Approval Pending"]
+
+  investor:
+    eligible: [GSE, FHA] # anything else → Declined (escalate to Onshore)
+    # Posted modification interest rate by investor, in percent. Business-maintained:
+    # update when the investor publishes a new rate; every plan records the rate it used.
+    posted_rate_pct: { GSE: 6.875, FHA: 6.5 }
+
+  income:
+    # Gross monthly income = sum of the MAA income_sources (+ other_income_amount when true).
+    include_other_income: true
+    # Paystub check: wage sources on the MAA vs wages derived from paystubs.
+    paystub_periods_per_year:
+      { Weekly: 52, Bi-Weekly: 26, Biweekly: 26, Semi-Monthly: 24, Monthly: 12 }
+    paystub_tolerance_pct: 10
+
+  # Current monthly mortgage payment, used to measure the payment change.
+  current_payment_field: credit_report.monthly_mortgage_payment
+
+  escrow:
+    require_current: true # ANA1.escrow_current must be true
+
+  affordability:
+    max_housing_ratio_pct: 40 # trial payment / gross monthly income
+    target_payment_reduction_pct: 20 # below target is flagged for the underwriter, not blocked
+
+  terms:
+    min_rate_pct: 2.0
+    max_rate_pct: 12.0
+    max_amortization_months: 480
+
+  # One proposal per option. trial payment = amortized P&I(UPB, posted rate, amortization) + ANA1 escrow.
+  plan_options:
+    - plan_type: flex_40yr
+      plan_name: Flex Modification Trial · 40-year
+      amortization_months: 480
+      trial_duration_months: 3
+    - plan_type: standard_30yr
+      plan_name: Standard Modification Trial · 30-year
+      amortization_months: 360
+      trial_duration_months: 3
+
+  schedule:
+    grace_period_days: 15
+    # First installment: the 1st of the first month at least this many days after evaluation.
+    first_due_min_lead_days: 15
+
+  conditions:
+    - Pay each trial installment in full by its due date plus the grace period.
+    - Keep the escrow account current for taxes and insurance during the trial.
+    - The trial converts to a permanent modification only after every trial payment is received.
+    - A missed or short trial payment after the grace period ends the trial.
